@@ -60,7 +60,11 @@ def goldbach_verify(is_prime, limit, cross_check=20000):
     For limits up to `cross_check` the fast count is compared against the
     naive reference; a disagreement is reported rather than hidden.
     """
-    plist = [p for p in range(2, limit // 2 + 1) if is_prime[p]]
+    # Every prime p with 2 <= p <= limit-2 must be accumulated: a pair
+    # (p, q) summing to some n <= limit is counted when iterating over p,
+    # and p is not restricted to n/2. Truncating this list to limit//2
+    # silently drops the pairs whose smaller prime exceeds limit//2.
+    plist = [p for p in range(2, limit - 1) if is_prime[p]]
 
     try:
         import numpy  # noqa: F401

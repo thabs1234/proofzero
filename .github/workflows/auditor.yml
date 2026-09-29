@@ -40,6 +40,12 @@ jobs:
           # which the auditor correctly reported and nothing else caught.
           python -m pip install mpmath
 
+      - name: Constitutional guardrail tests
+        # Pure refusal logic. No network, no git, no writes. If a future edit
+        # lets automation reach a frozen problem or the void, CI goes red here
+        # before any other step can act on it.
+        run: python hermes/tests/test_constitution.py
+
       - name: Audit (checks only; no git, no remote writes)
         run: python hermes/auditor.py --check
 

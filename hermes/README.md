@@ -17,8 +17,10 @@ This is the important part.
 There is deliberately no ladder of "next targets" and no bound-increment step.
 A bot that moved bounds every six hours would fill this repository with numbers
 nobody had reason to defend, and the whole point of ProofZero is that every
-number in it is defensible. Four of the ten problems have no tool and never
-will; that absence is a property, not a gap.
+number in it is defensible. Four of the ten problems are Millennium problems
+with no tool and never will have one; that absence is a property, not a gap.
+(A fifth entry, the solved Poincare conjecture, also has no tool — it does not
+need one.)
 
 ## Running it
 

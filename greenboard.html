@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ProofZero — Evidence Board</title>
+<style>
+  :root {
+    --bg: #0a0e14;
+    --panel: #111823;
+    --border: #1f2a38;
+    --text: #d7e0ea;
+    --muted: #7a8a9c;
+    --here: #4dd0e1;      /* this repo ran it */
+    --cited: #c792ea;     /* published, cited, NOT reproduced */
+    --none: #7a8a9c;      /* no finite check exists here */
+    --solved: #00e676;    /* a finished problem (Perelman) */
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    padding: 2rem 1rem 3rem;
+    line-height: 1.55;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; }
+  header { margin-bottom: 1.75rem; border-bottom: 1px solid var(--border); padding-bottom: 1.25rem; }
+  h1 { font-size: 1.7rem; letter-spacing: 0.04em; }
+  h1 span { color: var(--here); }
+  .sub { color: var(--muted); font-size: 0.85rem; margin-top: 0.5rem; max-width: 70ch; }
+  .warn {
+    margin: 1.25rem 0; padding: 0.9rem 1.1rem; font-size: 0.82rem;
+    background: #16121c; border: 1px solid #3d2f52; border-left: 3px solid var(--cited);
+    border-radius: 6px; color: #d9cbe8;
+  }
+  .warn b { color: #fff; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.85rem; margin: 1.5rem 0 2rem; }
+  .stat { background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: 0.9rem; }
+  .stat .num { font-size: 1.7rem; font-weight: 700; line-height: 1.1; }
+  .stat .lbl { font-size: 0.66rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.09em; margin-top: 0.3rem; }
+  .stat.here .num { color: var(--here); }
+  .stat.cited .num { color: var(--cited); }
+  .stat.none .num { color: var(--none); }
+  .stat.solved .num { color: var(--solved); }
+  .legend { margin: 0 0 1.25rem; font-size: 0.78rem; color: var(--muted); }
+  .legend div { margin: 0.2rem 0; }
+  .swatch { display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 0.5rem; vertical-align: middle; }
+  .card {
+    background: var(--panel); border: 1px solid var(--border); border-radius: 8px;
+    padding: 1rem 1.15rem; margin-bottom: 0.85rem;
+  }
+  .card-h { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.7rem; margin-bottom: 0.55rem; }
+  .card-h .t { font-size: 1rem; font-weight: 700; }
+  .card-h .f { color: var(--muted); font-size: 0.72rem; }
+  .tag {
+    font-size: 0.63rem; text-transform: uppercase; letter-spacing: 0.08em;
+    padding: 0.18rem 0.5rem; border-radius: 3px; border: 1px solid; white-space: nowrap;
+  }
+  .tag.here { color: var(--here); border-color: #1d4a52; background: #0e2026; }
+  .tag.cited { color: var(--cited); border-color: #3d2f52; background: #16121c; }
+  .tag.none { color: var(--none); border-color: var(--border); background: #0d1420; }
+  .tag.solved { color: var(--solved); border-color: #14532d; background: #0c1a12; }
+  dl { margin: 0; font-size: 0.8rem; }
+  dt { color: var(--muted); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.6rem; }
+  dd { margin: 0.12rem 0 0; word-break: break-word; }
+  code { background: #0d1420; border: 1px solid var(--border); border-radius: 3px; padding: 0.08rem 0.35rem; font-size: 0.76rem; }
+  .caveat { color: #e0b26b; font-size: 0.76rem; margin-top: 0.4rem; }
+  .edge { color: #e8a0a0; font-size: 0.79rem; }
+  .note { color: var(--muted); font-size: 0.75rem; margin-top: 0.5rem; font-style: italic; }
+  footer { margin-top: 2.25rem; padding-top: 1.25rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.74rem; }
+  footer a { color: var(--here); text-decoration: none; }
+  .err { color: #ff8a80; font-size: 0.8rem; }
+  @media (max-width: 600px) { body { padding: 1.25rem 0.75rem; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Proof<span>Zero</span> — Evidence Board</h1>
+    <div class="sub">
+      Finite, runnable checks for ten hard problems. A verified prefix is
+      evidence, never a proof. This board reports only what a command in
+      this repository actually did, plus published bounds it cites without
+      reproducing.
+    </div>
+  </header>
+
+  <div class="warn">
+    <b>Read the two strongest states as different things.</b>
+    <i>Run here</i> means a tool in this repo executed and its output is
+    reproduced by <code>make verify</code> in CI. <i>Cited, not reproduced</i>
+    means a published result named for reference — this repository did not
+    establish it, and the scale gap to the local run is often many orders
+    of magnitude. <i>No finite check</i> is a deliberate absence, not an
+    oversight: for those problems, computation is not the right tool.
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <div class="legend">
+    <div><span class="swatch" style="background:var(--here)"></span><b>Run here</b> — finite check executed in this repo, exact command recorded</div>
+    <div><span class="swatch" style="background:var(--cited)"></span><b>Cited, not reproduced</b> — published bound, named as a source only</div>
+    <div><span class="swatch" style="background:var(--none)"></span><b>No finite check</b> — no honest bounded check exists here</div>
+    <div><span class="swatch" style="background:var(--solved)"></span><b>Solved</b> — a finished problem, included as a control</div>
+  </div>
+
+  <div id="cards"></div>
+
+  <footer>
+    Source: <a href="problems/_status.json">problems/_status.json</a> &middot;
+    machine-checked against the exhibit cards by <code>tools/check_status.py</code> &middot;
+    <span id="meta"></span>
+    <div style="margin-top:0.5rem">
+      Timings are informational and machine-dependent. They are never a
+      pass/fail criterion. The open edge on every card is the point of the
+      exercise.
+    </div>
+  </footer>
+</div>
+
+<script>
+"use strict";
+
+/* Two independent axes, both read straight from the JSON:
+     hasLocalCheck = !!p.verified_here
+     hasCitation   = !!p.verified_elsewhere
+   Collapsing these into one status loses the fact that most of these
+   problems have a published bound and NO check here at all. Every card
+   therefore states both, and no cited bound is ever shown as a local run. */
+function stateOf(p) {
+  if (p.status === "solved") return "solved";
+  if (p.verified_here) return "here";
+  if (p.verified_elsewhere) return "cited";
+  return "none";
+}
+
+/* True when the repository offers no honest bounded check for this entry. */
+function lacksLocalCheck(p) {
+  return !p.verified_here && p.status !== "solved";
+}
+
+const LABEL = {
+  here:   "run here",
+  cited:  "cited, not reproduced",
+  none:   "no finite check",
+  solved: "solved"
+};
+
+function esc(s) {
+  return String(s == null ? "" : s)
+    .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+function rows(p, st) {
+  const out = [];
+
+  if (st === "solved") {
+    out.push(["result", "Solved. " + (p.solved_on ? "Completed " + esc(p.solved_on) + ". " : "") +
+      (p.verified_on_disk ? "Verified on disk at the " + esc(p.verified_on_disk) + ". " : "") +
+      "Perelman declined the prize and the Fields Medal."]);
+  }
+
+  if (st === "here") {
+    const v = p.verified_here;
+    out.push(["command", "<code>" + esc(v.command) + "</code>"]);
+    if (v.bound) out.push(["scope", esc(v.bound)]);
+    if (v.result) out.push(["result", esc(v.result)]);
+    if (v.negative_control == null && p.negative_control) {
+      out.push(["negative control", "<code>" + esc(p.negative_control) + "</code>"]);
+    }
+    if (v.worst_deviation) out.push(["tolerance", esc(v.worst_deviation)]);
+    if (v.candidate_shards) out.push(["shards", esc(v.candidate_shards)]);
+    if (v.runtime_sec != null) out.push(["runtime", v.runtime_sec + "s (local, informational)"]);
+    if (v.checked_on) out.push(["checked", esc(v.checked_on)]);
+  } else if (st === "cited") {
+    const v = p.verified_elsewhere || {};
+    if (v.bound) out.push(["published bound", esc(v.bound)]);
+    if (v.source) out.push(["source", esc(v.source)]);
+    out.push(["status here", "Not reproduced by this repository."]);
+  } else {
+    out.push(["status here", "No finite check in this repository."]);
+    if (p.verified_elsewhere && p.verified_elsewhere.bound) {
+      out.push(["published context", esc(p.verified_elsewhere.bound)]);
+      if (p.verified_elsewhere.source) out.push(["source", esc(p.verified_elsewhere.source)]);
+    }
+  }
+
+  /* Second axis, stated independently of the citation above. */
+  if (lacksLocalCheck(p)) {
+    out.push(["local tool", '<span class="edge">none &mdash; this repository provides no ' +
+      "bounded check for this problem, and none would be honest to invent</span>"]);
+  }
+
+  if (p.open_edge) out.push(["open edge", '<span class="edge">' + esc(p.open_edge) + "</span>"]);
+  return out;
+}
+
+function card(p) {
+  const st = stateOf(p);
+  const el = document.createElement("div");
+  el.className = "card";
+
+  let html =
+    '<div class="card-h">' +
+      '<span class="t">' + esc(p.title) + "</span>" +
+      '<span class="tag ' + st + '">' + esc(LABEL[st]) + "</span>" +
+      (p.field ? '<span class="f">' + esc(p.field) + "</span>" : "") +
+      (p.first_stated ? '<span class="f">stated ' + esc(p.first_stated) + "</span>" : "") +
+    "</div>";
+
+  html += "<dl>";
+  for (const [k, v] of rows(p, st)) {
+    html += "<dt>" + esc(k) + "</dt><dd>" + v + "</dd>";
+  }
+  html += "</dl>";
+
+  const cav = st === "here" && p.verified_here && p.verified_here.caveat;
+  if (cav) html += '<div class="caveat">Caveat: ' + esc(cav) + "</div>";
+
+  if (p.note) html += '<div class="note">' + esc(p.note) + "</div>";
+
+  if (p.file) {
+    html += '<div style="margin-top:0.6rem"><a href="' + esc(p.file) +
+            '" style="color:var(--here);font-size:0.74rem;text-decoration:none">' +
+            esc(p.file) + " &rarr;</a></div>";
+  }
+
+  el.innerHTML = html;
+  return el;
+}
+
+function render(data) {
+  const board = document.getElementById("cards");
+  board.innerHTML = "";
+  const counts = { here: 0, cited: 0, none: 0, solved: 0 };
+  for (const p of data.problems) {
+    counts[stateOf(p)]++;
+    board.appendChild(card(p));
+  }
+
+  const stats = document.getElementById("stats");
+  stats.innerHTML = "";
+  const order = [
+    ["here", "run here"],
+    ["cited", "cited, not reproduced"],
+    ["none", "no finite check"],
+    ["solved", "solved"]
+  ];
+  for (const [k, lbl] of order) {
+    const d = document.createElement("div");
+    d.className = "stat " + k;
+    d.innerHTML = '<div class="num">' + counts[k] + '</div><div class="lbl">' + esc(lbl) + "</div>";
+    stats.appendChild(d);
+  }
+  const tot = document.createElement("div");
+  tot.className = "stat";
+  const noCheck = data.problems.filter(lacksLocalCheck).length;
+  tot.innerHTML = '<div class="num">' + data.problems.length +
+    '</div><div class="lbl">problems &middot; ' + noCheck + " with no local check</div>";
+  stats.appendChild(tot);
+
+  const c = data.counts || {};
+  document.getElementById("meta").textContent =
+    "schema v" + data.schema_version + (c.with_tool_note ? " — " + c.with_tool_note : "");
+}
+
+async function load() {
+  const board = document.getElementById("cards");
+  try {
+    const res = await fetch("problems/_status.json", { cache: "no-store" });
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    const data = await res.json();
+    if (!Array.isArray(data.problems)) throw new Error("missing 'problems' array");
+    render(data);
+  } catch (e) {
+    board.innerHTML =
+      '<div class="card err">Could not load <code>problems/_status.json</code> (' +
+      esc(e.message) + ").<br>This page reads the JSON with fetch(), which browsers " +
+      "block on <code>file://</code>. Serve the repository over HTTP first:<br>" +
+      "<code>python -m http.server 8000</code> then open " +
+      "<code>http://localhost:8000/greenboard.html</code></div>";
+  }
+}
+
+load();
+</script>
+</body>
+</html>

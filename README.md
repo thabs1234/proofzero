@@ -89,6 +89,7 @@ checker exists to keep them from drifting.
 ```bash
 make verify    # run every finite check; non-zero exit on any regression
 make status    # print the bound table from problems/_status.json
+make board     # check that greenboard.html renders honestly
 make help      # list targets
 ```
 
@@ -96,6 +97,24 @@ make help      # list targets
 detect planted errors. It does not advance any conjecture, and it is not a scoreboard.
 Four of the Millennium problems have no tool and never will have one here — that is a
 permanent state, not a gap awaiting effort.
+
+## The evidence board
+
+`greenboard.html` renders `problems/_status.json` in a browser. It draws two
+independent things per problem and never merges them: whether a tool here ran,
+and whether a published bound is merely cited. A cited bound is labelled
+`cited, not reproduced`, and the four problems with no local check say so on
+their own card rather than borrowing a colour from the citation beside them.
+
+```bash
+python -m http.server 8000     # then open http://localhost:8000/greenboard.html
+```
+
+It reads the JSON with `fetch()`, so it must be served over HTTP; opening the
+file directly will show an error explaining exactly that. `make board` runs the
+rendering logic headlessly and fails if the page would present a cited bound as
+a local result, drop a "no local check" disclosure, or invent a bound in its own
+prose.
 
 Please cite this repository as software, not as a result. See `CITATION.cff`.
 

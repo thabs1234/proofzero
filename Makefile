@@ -17,13 +17,14 @@
 PYTHON ?= python
 TOOLS  := tools
 
-.PHONY: verify status lint help
+.PHONY: verify status board lint help
 
 help:
 	@echo "ProofZero -- bounded verification"
 	@echo ""
 	@echo "  make verify   run all finite checks (non-zero exit on failure)"
 	@echo "  make status   print the bound table from problems/_status.json"
+	@echo "  make board    check that greenboard.html renders honestly"
 	@echo "  make lint     syntax-lint tools/ (advisory)"
 	@echo ""
 	@echo "None of this resolves any of the ten open problems."
@@ -54,6 +55,16 @@ verify:
 
 status:
 	@$(PYTHON) $(TOOLS)/status_table.py
+
+# Checks that greenboard.html still renders honestly from _status.json.
+# Uses .cjs so a parent-directory package.json cannot switch it to ESM.
+# If node is unavailable this skips loudly rather than silently passing.
+board:
+	@if command -v node >/dev/null 2>&1; then \
+		node $(TOOLS)/check_greenboard.cjs; \
+	else \
+		echo "SKIP: node not installed; greenboard render check not run"; \
+	fi
 
 lint:
 	@$(PYTHON) -m flake8 $(TOOLS) --count --select=E9,F63,F7,F82 --show-source --statistics \

@@ -45,3 +45,9 @@ jobs:
         # The same target a contributor runs locally. Deliberately named
         # "verify" and not "green": no check here advances a conjecture.
         make verify
+    - name: greenboard.html renders honestly from _status.json
+      run: |
+        # Fails if the board would show a cited bound as a local result,
+        # drop a "no local check" disclosure, or invent a bound in its own
+        # prose. Node is preinstalled on GitHub-hosted runners.
+        node tools/check_greenboard.cjs

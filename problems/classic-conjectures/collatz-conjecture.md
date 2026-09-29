@@ -4,6 +4,30 @@
 **Field:** Dynamical Systems / Number Theory
 **First stated:** 1937 (Lothar Collatz)
 
+## Exhibit card
+
+**Exhibit C — The 3n+1 Problem That Has Eaten a Century of Coffee Breaks**
+*Field: Dynamical Systems / Number Theory. First stated: 1937.*
+
+- **What is known.** Every n up to 2⁶⁸ has been verified to reach 1 by
+  computation (Barina 2020 and successors), using verified-forcing methods
+  covering a residue-class argument rather than a single trajectory. Tao
+  proved (2019) that almost all n, in a density sense, reach values below
+  f(n) for any f that grows faster than any logarithm.
+- **What this repo checked.** `tools/collatz_hunt.py` searches trajectories
+  from a given start and reports the longest and highest-peaking ones
+  encountered. A 200,000-start run found a maximum trajectory of 382 steps
+  and a peak of 17,202,377,752. Default search is 100,000 starts.
+- **What remains open.** Every n. The record bound is 2⁶⁸ — a finite prefix
+  of a countably infinite set, with no known monotonicity or induction
+  principle that extends it. 2⁶⁸ is roughly 2.95×10²⁰, which is a large
+  number and also nothing whatsoever next to infinity.
+- **The inverse trap.** The tool is a *counterexample hunter*. A clean run is
+  evidence AGAINST a counterexample up to the bound searched, and is never a
+  proof. Low results say nothing about the hard cases: the interesting
+  behaviour lives in numbers that are not small, and none of them have been
+  found.
+
 ## Statement
 
 For any positive integer n:

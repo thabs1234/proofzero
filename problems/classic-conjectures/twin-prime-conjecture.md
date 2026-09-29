@@ -4,6 +4,30 @@
 **Field:** Number Theory
 **First stated:** 1849 (Alphonse de Polignac)
 
+## Exhibit card
+
+**Exhibit J — The Pattern Everyone Sees and No One Can Prove**
+*Field: Number Theory. First stated: 1849 (de Polignac).*
+
+- **What is known.** Twin primes — p and p+2 both prime — occur infinitely
+  often, conjectured since the 19th century. The bounded gap result (Zhang
+  2013, Maynard–Tao 2013/2014, Polymath8b) proves that some fixed even gap
+  repeats infinitely often: unconditionally, the best bound is 246.
+- **What this repo checked.** `tools/goldbach_twins.py` counts twin pairs
+  to a sieve limit. Through 200,000 it finds 2,160 pairs. Twin counting is
+  exact and needs no assumption; only the *infinity* of the sequence is
+  conjectural.
+- **What remains open.** Infinitude at gap exactly 2. Bounded gaps are not
+  twins: proving infinitely many pairs with p+2k for some k ≤ 123 does not
+  single out k = 1, and no method shrinks the bound to 2. The sieve
+  parity barrier is the obstruction, and it is a limit of the method rather
+  than of the arithmetic.
+- **Why the count is the honest part.** Any finite run yields an exact
+  count, and a count is exactly the kind of thing that can be wrong. The
+  tool cross-checks its fast path against a naive count for the same reason
+  it does so for Goldbach: a bounded search that silently drops a case is
+  worse than no search, because it looks like evidence.
+
 ## Statement
 
 There are infinitely many primes p such that p+2 is also prime.

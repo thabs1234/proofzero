@@ -5,6 +5,30 @@
 **First stated:** 1822 (Navier), 1845 (Stokes)
 **Prize:** $1,000,000 (Clay Millennium)
 
+## Exhibit card
+
+**Exhibit D — We Still Don't Know If Water Is Smooth**
+*Field: PDE / Fluid Dynamics. Prize: $1,000,000.*
+
+- **What is known.** Smooth, well-behaved initial velocity fields lead to
+  smooth solutions in three dimensions. Leray (1934) and Prodi–Serrin
+  proved existence of *weak* solutions for all time, and partial regularity:
+  singularities, if any, are confined to a set of small measure.
+- **What this repo checked.** **Nothing.** There is no computational tool in
+  this repository for this problem, and the omission is deliberate. Turbulence
+  is observed at Reynolds numbers of 10⁶–10⁸ and simulated to a few hundred
+  billion degrees of freedom, but a simulation that has not blown up is not
+  evidence of global regularity — it is evidence about one trajectory. This
+  card states a bound of *no* bound.
+- **What remains open.** Both required parts: existence and smoothness of
+  solutions in 3D for arbitrary smooth data, and the resulting uniqueness.
+  The obstacle is not the linear theory, which is classical and understood,
+  but controlling the nonlinear vortex stretching in 3D.
+- **A note on overclaiming.** Claims in this area are unusually easy to
+  generate and hard to falsify. Absence of a numerical blow-up at
+  achievable Reynolds numbers is not evidence for the conjecture in any
+  formal sense.
+
 ## Statement
 
 Do smooth, globally defined solutions to the 3D Navier-Stokes equations exist for all time, given smooth initial conditions?

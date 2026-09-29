@@ -4,6 +4,34 @@
 **Field:** Quantum Field Theory / Mathematical Physics
 **Prize:** $1,000,000 (Clay Millennium)
 
+## Exhibit card
+
+**Exhibit G — The Problem Where the Physics Is More Precise Than the Math**
+*Field: Quantum Field Theory / Mathematical Physics. Prize: $1,000,000.*
+
+- **What is known.** Non-abelian gauge theories are the ones that describe
+  the Standard Model, and they are mathematically ill-defined at the level
+  needed for anything rigorous. The mass gap is empirically confirmed across
+  the Standard Model to extraordinary precision. Existence and construction
+  of a suitable Yang–Mills theory in four dimensions is proved only in
+  restricted settings — notably supersymmetric, small-Higgs cases, and
+  Abelian theories, which are *not* the case the Prize asks about.
+- **What this repo checked.** **Nothing.** There is no computational tool in
+  this repository for this problem. Lattice QCD provides overwhelming
+  numerical evidence for a mass gap, but a simulation that never closes
+  predicts an open trajectory's worth of mass; it cannot exclude a
+  discontinuity. This card states a bound of *no* bound.
+- **What remains open.** Existence of a well-defined, complete, Lorentz-
+  invariant quantum Yang–Mills theory in 3+1 dimensions with a mass gap, and
+  the Clay formulation's stronger quantitative form. This is a problem of
+  existence, not of approximation, and computation is structurally the wrong
+  tool.
+- **The trap worth naming.** The Abelian and supersymmetric results are
+  often cited as if they substantially reduce the hard case. They do not:
+  asymptotic freedom in 4D non-supersymmetric Yang–Mills is precisely the
+  regime the theory is conjectured to need, and that is the part still
+  unproved.
+
 ## Statement
 
 Prove that for any compact simple gauge group, Yang-Mills theory on ℝ⁴ has a mass gap Δ > 0.

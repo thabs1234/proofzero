@@ -4,6 +4,32 @@
 **Field:** Number Theory
 **First stated:** 1742 (Christian Goldbach, letter to Euler)
 
+## Exhibit card
+
+**Exhibit I — The Conjecture Every Schoolchild Can Restate and No One Can Prove**
+*Field: Number Theory. First stated: 1742.*
+
+- **What is known.** Every even number up to 4×10¹⁸ has been verified as a
+  sum of two primes (Oliveira e Silva, Herzog, Pardi, and collaborators), a
+  computation run continuously for years. 4×10¹⁸ is the largest verified
+  frontier.
+- **What this repo checked.** `tools/goldbach_twins.py` sieves to a bound
+  and exhaustively counts representations of each even n, cross-checking a
+  fast convolution against a naive direct count. Default limit 1,000,000;
+  runs at 20,000 and 200,000 both pass with min_reps = 1 and 0 violations.
+  The tool's own assertion caught a real truncation bug in the fast path,
+  which is fixed — the prime list was built only to `limit//2` while pairs
+  are accumulated over the iterated prime, so pairs with a smaller prime
+  above `limit//2` were dropped. At n = 10010 the fast path reported 190
+  representations against the true 191.
+- **What remains open.** All even integers without bound. Sieving to any
+  finite limit says nothing about 4×10¹⁸ + 2, and there is no known
+  monotonicity principle that would carry the result forward.
+- **A distinction worth keeping.** Goldbach is about *even* numbers. The
+  naive reference count in the tool is populated for even n only, which
+  matches the conjecture's actual domain — odd n are not failures of
+  Goldbach and are not validated by the cross-check.
+
 ## Statement
 
 Every even integer greater than 2 is the sum of two primes.

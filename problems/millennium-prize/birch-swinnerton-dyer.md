@@ -4,6 +4,30 @@
 **Field:** Arithmetic Geometry / Elliptic Curves
 **Prize:** $1,000,000 (Clay Millennium)
 
+## Exhibit card
+
+**Exhibit F — The Arithmetic Geometry Problem With the Highest Bar**
+*Field: Arithmetic Geometry / Elliptic Curves. Prize: $1,000,000.*
+
+- **What is known.** The conjecture ties the number of rational points on an
+  elliptic curve E/ℚ to analytic invariants — the order of vanishing of
+  L(E, s) at s = 1 and the leading Taylor coefficient. Rank 0 and rank 1
+  cases are established in large families (Kolyvagin, and the work of
+  Skinner–Urban and others). It holds in every specific instance checked.
+- **What this repo checked.** **Nothing.** There is no computational tool in
+  this repository for this problem, and the reason is that "checked a finite
+  number of curves" is close to content-free here. Individual curves can be
+  and have been verified to high precision; the conjecture is a statement
+  about *all* elliptic curves over ℚ, and no finite sample bears on it.
+  This card states a bound of *no* bound.
+- **What remains open.** Higher rank, unconditionally, for a single
+  provable infinite family. Every known proof advances rank by one, with
+  technical hypotheses that do not yet generalise.
+- **The honest asymmetry.** For the other exhibits, computation reaches some
+  fraction of the problem. For this one it reaches none. Saying so is more
+  useful than shipping a script that enumerates a few curves and prints
+  "consistent."
+
 ## Statement
 
 For an elliptic curve E over ℚ, the rank of E(ℚ) equals the order of vanishing of L(E,s) at s=1.

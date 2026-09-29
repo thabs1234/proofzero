@@ -5,6 +5,28 @@
 **First stated:** 1859 (Bernhard Riemann)
 **Prize:** $1,000,000 (Clay Millennium)
 
+## Exhibit card
+
+**Exhibit A — The Billion-Dollar Question Nobody Can Crack**
+*Field: Analytic Number Theory. Prize: $1,000,000.*
+
+- **What is known.** Every non-trivial zero of ζ(s) that has been computed
+  lies on the line Re(s) = 1/2. Platt and Trudgian verified this up to height
+  3×10¹². More than 41% of zeros are provably on the line unconditionally
+  (Bui–Conrey–Young, 2011).
+- **What this repo checked.** `tools/rh_zeros.py` locates the first N zeros by
+  two-variable Newton iteration started *off* the line, and reports the
+  deviation of each real part from 1/2. Default N = 20; the 200-zero run
+  finished with a worst deviation of 2.58×10⁻²⁶.
+- **What remains open.** That *every* zero is on the line. A verified prefix
+  does not imply the general case — the property is not known to be
+  inductive. Roughly 1.7×10¹³ zeros are known numerically; infinitely many
+  are unaddressed.
+- **This is not a contribution.** The check is the published result scaled
+  down by about 10¹², and proves nothing Platt–Trudgian did not already prove.
+  `tools/_control_rh.py` exists to prove the checker can *fail*: it plants a
+  zero at 0.8 ± 14.13i and the tool reports the deviation 0.3.
+
 ## Statement
 
 All non-trivial zeros of the Riemann zeta function ζ(s) have real part 1/2.

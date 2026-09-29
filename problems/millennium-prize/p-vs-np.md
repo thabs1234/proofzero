@@ -5,6 +5,30 @@
 **First stated:** 1971 (Stephen Cook)
 **Prize:** $1,000,000 (Clay Millennium)
 
+## Exhibit card
+
+**Exhibit B — Why Your Computer Can't Have Nice Things**
+*Field: Computational Complexity Theory. Prize: $1,000,000.*
+
+- **What is known.** Verifying a proposed answer is cheap; finding one is
+  not known to be. Cook–Levin (1971, 1973) established that verification is
+  polynomial and that every problem in NP reduces to SAT.
+- **What this repo checked.** `tools/pnp_probe.py` generates random 3-SAT
+  instances and times DPLL search against certificate checking, exposing the
+  asymmetry directly. At n=20, m=85, density 4.25: DPLL 6.383 ms, certificate
+  check 0.0651 ms — 98× faster — while exhaustive search over 2²⁰ assignments
+  took 1214.605 ms. `--self-check` then validates the solver against brute
+  force on 400 random instances (323 SAT, 77 UNSAT), rechecking every
+  certificate independently.
+- **What remains open.** Whether P = NP. No lower bound super-polynomial in
+  general is known for any NP problem; nor is a polynomial-time algorithm
+  known. The tool demonstrates the *shape* of the gap on specific instances.
+  It is exponential-time by construction and proves nothing either way.
+- **On the self-check.** It is mutation-tested. Three deliberately injected
+  faults in `_dpll` — a false UNSAT, a skipped certificate check, and
+  inverted propagation polarity — were each caught with a non-zero exit. A
+  check that cannot fail is not a check.
+
 ## Statement
 
 Is every problem whose solution can be verified in polynomial time (NP) also solvable in polynomial time (P)?

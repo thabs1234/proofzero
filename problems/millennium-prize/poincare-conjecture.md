@@ -5,6 +5,35 @@
 **First stated:** 1904 (Henri Poincaré)
 **Prize:** $1,000,000 (Clay Millennium) — offered to Perelman, declined
 
+## Exhibit card
+
+**Exhibit H — The One That Has An Answer**
+*Field: Topology / Geometric Analysis. Prize: $1,000,000 — declined.*
+
+**Status: SOLVED.** Perelman, 2002–2003, via the Ricci flow with surgery;
+verified by the Clay Institute in 2006. Perelman declined both the prize and
+the Fields Medal. He is the only person known to have declined a Fields
+Medal.
+
+- **What is known.** Every closed, simply connected 3-manifold is
+  homeomorphic to the 3-sphere. Complete, and it is the only one of the
+  seven Clay problems that is closed.
+- **What this repo checked.** Nothing computational, by design. This note is
+  included as a **control**: it shows what a finished problem looks like —
+  a named result, a named verifier, a date — so that the six open notes can
+  be read as genuinely open by contrast. A repository of unsolved problems
+  with no example of a solved one is difficult to calibrate.
+- **Why it is here anyway.** The three-dimensional case is the solved one.
+  Higher-dimensional analogues are open, and the note keeps those clearly
+  separated: smooth exotic Milnor spheres exist in dimensions ≥ 7 (Bing,
+  1959), the smooth Poincaré conjecture in dimension 4 remains open, and
+  Freedman's 1982 topological result settles dimension 4 *topologically*
+  only, not smoothly.
+- **A question of fairness.** If you are reading this repository expecting
+  an unsolved problem and you land here first, note the difference: this
+  exhibit is closed. Six others are not. The tools elsewhere in this repo
+  search; they never solve.
+
 ## Statement
 
 Every simply connected, closed 3-manifold is homeomorphic to the 3-sphere.

@@ -79,6 +79,26 @@ Copy `problems/_template.md` and fill in:
 - Notes
 - References
 
+Then add a matching entry to `problems/_status.json` and run
+`python tools/check_status.py`, which will tell you if the JSON and the note
+disagree. The exhibit card and the JSON entry are mirrors of each other; the
+checker exists to keep them from drifting.
+
+## Running the tools
+
+```bash
+make verify    # run every finite check; non-zero exit on any regression
+make status    # print the bound table from problems/_status.json
+make help      # list targets
+```
+
+`make verify` is named for what it does: it confirms these tools still run and still
+detect planted errors. It does not advance any conjecture, and it is not a scoreboard.
+Four of the Millennium problems have no tool and never will have one here — that is a
+permanent state, not a gap awaiting effort.
+
+Please cite this repository as software, not as a result. See `CITATION.cff`.
+
 Every problem note opens with an exhibit card giving what is known, what a
 tool here checked at an exact bound, and what remains open. `nothing.md`
 has no such card, on purpose, and a new entry without a real bound to

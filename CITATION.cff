@@ -1,0 +1,42 @@
+cff-version: 1.2.0
+title: ProofZero
+message: >-
+  If you use this repository, its notes, or its bounded verification
+  tools, please cite it as software. Please do not cite it as a result.
+type: software
+authors:
+  - name: "ProofZero contributors"
+repository-code: "https://github.com/thabs1234/proofzero"
+license: MIT
+abstract: >-
+  A collection of research notes on ten open mathematical problems: the six
+  open Clay Millennium Prize Problems, the Poincare Conjecture as a solved
+  historical control, and three classic conjectures (Collatz, Goldbach,
+  twin primes). Each note separates what is known, what can be checked
+  here, and where the open edge lies. The tools give finite evidence on
+  small bounds and nothing more. No proof is claimed, and none of the ten
+  problems is resolved by anything in this repository.
+
+
+  Please cite published bounds where they are cited -- Oliveira e Silva,
+  Herzog and Pardi for Goldbach to 4e18; Barina for Collatz to 2^68;
+  Platt and Trudgian for Riemann zeros to 3e12; Zhang, Maynard and Tao for
+  bounded prime gaps. This repository reproduces none of them.
+keywords:
+  - mathematics
+  - open problems
+  - computational verification
+  - reproducible research
+  - research notes
+version: 0.3.0
+date-released: "2026-09-29"
+references:
+  - type: standard
+    title: >-
+      Note on citation scope: this repository is a literature and tooling
+      resource. Citing it acknowledges the notes and tools, not any
+      mathematical claim. Finite computations in tools/ establish
+      nothing about any conjecture's general case, and the four Millennium
+      problems with no tool (Navier-Stokes, Yang-Mills, Birch and
+      Swinnerton-Dyer, Hodge) have none because no honest finite check
+      for them exists here.

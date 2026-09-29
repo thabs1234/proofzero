@@ -1,0 +1,233 @@
+{
+  "$comment": "Machine-readable mirror of the exhibit cards in problems/*.md. Every field here is traceable to a card in this repository or to a cited source. Nothing in this file is a claim that ProofZero verified anything it did not run. 'verified_here' is what this repo's own tools check, on a small bound. 'verified_elsewhere' is a published result this repo cites but does NOT reproduce. Keep those two fields apart: merging them would imply this repository established results it did not.",
+  "schema_version": 1,
+  "license": "MIT",
+  "conventions": {
+    "status_values": ["open", "solved"],
+    "tool": "Path to the tool in this repo, or null if no honest finite check exists.",
+    "verified_here": {
+      "command": "Exact command run in this repo's CI.",
+      "bound": "The exact finite limit that command reaches.",
+      "runtime_sec": "Measured on the maintainer's machine (Python 3.14, Windows 11). Not a promise; varies by hardware.",
+      "checked_on": "Date this repo last ran the command and observed the values below."
+    },
+    "verified_elsewhere": {
+      "bound": "A published result, cited only. NOT reproduced by this repository.",
+      "source": "Primary source for that result."
+    },
+    "open_edge": "What remains unestablished. The whole point of the file."
+  },
+  "tolerances": {
+    "runtime_sec": "Informational only. Never asserted by 'make verify'; timing varies by machine and must not be a pass/fail criterion.",
+    "verification_result": "Values that MUST reproduce exactly on a passing run. A change here is a real behavioural change and should fail CI."
+  },
+  "problems": [
+    {
+      "id": "riemann-hypothesis",
+      "title": "Riemann Hypothesis",
+      "file": "problems/millennium-prize/riemann-hypothesis.md",
+      "status": "open",
+      "field": "Analytic Number Theory",
+      "tool": "tools/rh_zeros.py",
+      "negative_control": "tools/_control_rh.py",
+      "verified_here": {
+        "command": "python tools/rh_zeros.py 20",
+        "bound": "first 20 non-trivial zeros, located by two-variable Newton iteration started off the line Re(s)=1/2",
+        "worst_deviation": "0.0 at working precision (2.58e-26 at 200 zeros)",
+        "runtime_sec": 2.1,
+        "checked_on": "2026-09-29"
+      },
+      "verified_elsewhere": {
+        "bound": "zeros to height 3e12",
+        "source": "Platt and Trudgian, 'The Riemann hypothesis is true up to 3*10^12', Bull. London Math. Soc. 53 (2021)"
+      },
+      "open_edge": "That every non-trivial zero lies on Re(s)=1/2. A verified prefix is not inductive; the property is not known to extend.",
+      "note": "The negative control exists to prove the checker can fail: it plants a zero at 0.8 +/- 14.13i and the tool must report deviation 0.3."
+    },
+    {
+      "id": "p-vs-np",
+      "title": "P vs NP",
+      "file": "problems/millennium-prize/p-vs-np.md",
+      "status": "open",
+      "field": "Computational Complexity Theory",
+      "tool": "tools/pnp_probe.py",
+      "verified_here": {
+        "command": "python tools/pnp_probe.py --self-check",
+        "bound": "400 random 3-SAT instances, n in [4,14], seed 1234",
+        "result": "323 SAT / 77 UNSAT; DPLL vs brute-force disagreements 0; invalid certificates 0",
+        "runtime_sec": 4.8,
+        "checked_on": "2026-09-29"
+      },
+      "verified_elsewhere": {
+        "bound": "Cook-Levin: verification is polynomial, every problem in NP reduces to SAT",
+        "source": "Cook (1971), Levin (1973)"
+      },
+      "open_edge": "Whether P = NP. No super-polynomial lower bound is known for any NP problem, and no polynomial-time algorithm is known. This repo's tool is exponential-time by construction and settles nothing either way.",
+      "timing_example": {
+        "command": "python tools/pnp_probe.py 15 4.26",
+        "instance": "n=20, m=85, density=4.25",
+        "dpll_ms": 6.383,
+        "certificate_check_ms": 0.0651,
+        "ratio": "98x",
+        "brute_force_2pow20_ms": 1214.605,
+        "runtime_sec": 0.6
+      },
+      "note": "The self-check is mutation-tested. Three injected faults in _dpll (false UNSAT, skipped certificate validation, inverted polarity) were each caught with a non-zero exit."
+    },
+    {
+      "id": "navier-stokes",
+      "title": "Navier-Stokes Existence and Smoothness",
+      "file": "problems/millennium-prize/navier-stokes.md",
+      "status": "open",
+      "field": "PDE / Fluid Dynamics",
+      "tool": null,
+      "verified_here": null,
+      "verified_elsewhere": {
+        "bound": "weak solutions exist globally (Leray 1934; Prodi-Serrin 1957); partial regularity confines singularities to a set of small measure",
+        "source": "Leray (1934), Prodi and Serrin (1957)"
+      },
+      "open_edge": "Existence and smoothness of solutions in 3D for arbitrary smooth data, and the resulting uniqueness. Not computed here: no non-blow-up simulation is evidence for global regularity.",
+      "note": "No honest finite check exists in this repository. This is a deliberate absence, not a gap to be filled with a green cell."
+    },
+    {
+      "id": "yang-mills-mass-gap",
+      "title": "Yang-Mills Existence and Mass Gap",
+      "file": "problems/millennium-prize/yang-mills-mass-gap.md",
+      "status": "open",
+      "field": "Quantum Field Theory / Mathematical Physics",
+      "tool": null,
+      "verified_here": null,
+      "verified_elsewhere": {
+        "bound": "existence proved only in restricted settings: supersymmetric small-Higgs, and Abelian theories (not the case the Prize asks about)",
+        "source": "Witten; Jaffe and Witten; DeGrand and Jaffe"
+      },
+      "open_edge": "A well-defined, complete, Lorentz-invariant quantum Yang-Mills theory in 3+1 dimensions with a mass gap. A problem of existence, not approximation: computation is structurally the wrong tool.",
+      "note": "Empirical confirmation of the Standard Model mass gap is overwhelming but is not a proof of existence. Abelian and supersymmetric results are often overstated as progress on the hard case."
+    },
+    {
+      "id": "birch-swinnerton-dyer",
+      "title": "Birch and Swinnerton-Dyer Conjecture",
+      "file": "problems/millennium-prize/birch-swinnerton-dyer.md",
+      "status": "open",
+      "field": "Arithmetic Geometry / Elliptic Curves",
+      "tool": null,
+      "verified_here": null,
+      "verified_elsewhere": {
+        "bound": "rank 0 and rank 1 established in large families, with technical hypotheses that do not generalise",
+        "source": "Kolyvagin; Skinner and Urban; Burungale, Skinner and Tian"
+      },
+      "open_edge": "Higher rank, unconditionally, for a single provable infinite family. Verifying individual curves to high precision bears on none of this: the conjecture quantifies over all elliptic curves over Q.",
+      "note": "No honest finite check exists in this repository."
+    },
+    {
+      "id": "hodge-conjecture",
+      "title": "Hodge Conjecture",
+      "file": "problems/millennium-prize/hodge-conjecture.md",
+      "status": "open",
+      "field": "Algebraic Geometry",
+      "tool": null,
+      "verified_here": null,
+      "verified_elsewhere": {
+        "bound": "known in low dimension; the INTEGRAL form is false in general",
+        "source": "Hodge (1891); Atiyah and Hirzebruch (1962)"
+      },
+      "open_edge": "The rational form in every dimension. The conjecture ranges over all smooth projective varieties of unbounded dimension and degree, so no finite sample bears on it.",
+      "note": "The integral and rational forms are not interchangeable. The Prize concerns the rational form."
+    },
+    {
+      "id": "poincare-conjecture",
+      "title": "Poincare Conjecture",
+      "file": "problems/millennium-prize/poincare-conjecture.md",
+      "status": "solved",
+      "solved_on": "2002-2003",
+      "verified_on_disk": "Clay Mathematics Institute, 2006",
+      "field": "Topology / Geometric Analysis",
+      "tool": null,
+      "verified_here": null,
+      "verified_elsewhere": {
+        "bound": "every closed simply connected 3-manifold is homeomorphic to the 3-sphere",
+        "source": "Perelman (2002-2003), via Ricci flow with surgery"
+      },
+      "open_edge": "None in dimension 3. Higher-dimensional analogues remain open: smooth exotic Milnor spheres exist in dimensions >= 7 (Bing 1959), the smooth 4-dimensional case is open, and Freedman's 1982 result settles dimension 4 topologically only.",
+      "note": "Solved. Perelman declined the prize and the Fields Medal. Included as a control: this is what a finished problem looks like, so the six open notes can be read as genuinely open by contrast."
+    },
+    {
+      "id": "collatz",
+      "title": "Collatz Conjecture",
+      "file": "problems/classic-conjectures/collatz-conjecture.md",
+      "status": "open",
+      "field": "Dynamical Systems / Number Theory",
+      "first_stated": 1937,
+      "tool": "tools/collatz_hunt.py",
+      "verified_here": {
+        "command": "python tools/collatz_hunt.py 200000 --top 1",
+        "bound": "200000 starting values, each trajectory searched with a per-start step limit",
+        "result": "max trajectory 382 steps; max peak 17202377752",
+        "runtime_sec": 0.4,
+        "checked_on": "2026-09-29",
+        "caveat": "This is a counterexample SEARCH over 200000 starting values. It is a small fraction of 2^68 and establishes nothing about the conjecture."
+      },
+      "verified_elsewhere": {
+        "bound": "every n below 2^68 = 295147905179352825856 reaches 1, by verified-forcing methods over residue classes",
+        "source": "Barina (2020) and successors"
+      },
+      "open_edge": "Every n. The verified prefix is finite with no known monotonicity or induction principle that extends it. Note the scale gap: 2^68 is ~2.95e20, and this repo searches 200000 starts.",
+      "note": "A clean run is evidence AGAINST a counterexample up to the bound searched, and is never a proof."
+    },
+    {
+      "id": "goldbach",
+      "title": "Goldbach Conjecture",
+      "file": "problems/classic-conjectures/goldbach-conjecture.md",
+      "status": "open",
+      "field": "Number Theory",
+      "first_stated": 1742,
+      "tool": "tools/goldbach_twins.py",
+      "verified_here": {
+        "command": "python tools/goldbach_twins.py 20000 --sample",
+        "bound": "every even n <= 20000, representation counts cross-checked against a naive direct count",
+        "result": "min representations 1; 0 violations",
+        "runtime_sec": 5.3,
+        "checked_on": "2026-09-29",
+        "caveat": "Twenty thousand. The published frontier is 4e18, roughly ten orders of magnitude further. This run is a regression check on the tool, not a contribution to the frontier."
+      },
+      "verified_elsewhere": {
+        "bound": "every even number up to 4e18 is a sum of two primes",
+        "source": "Oliveira e Silva, Herzog and Pardi"
+      },
+      "open_edge": "All even integers without bound. Sieving to any finite limit says nothing about 4e18 + 2.",
+      "note": "The tool's own assertion caught a real truncation bug: the prime list was built only to limit//2 while pairs accumulate over the iterated prime, dropping pairs with a smaller prime above limit//2. At n=10010 the fast path reported 190 representations against the true 191. Fixed."
+    },
+    {
+      "id": "twin-prime",
+      "title": "Twin Prime Conjecture",
+      "file": "problems/classic-conjectures/twin-prime-conjecture.md",
+      "status": "open",
+      "field": "Number Theory",
+      "first_stated": 1849,
+      "tool": "tools/goldbach_twins.py",
+      "verified_here": {
+        "command": "python tools/goldbach_twins.py 200000 --sample",
+        "bound": "exact twin pair count through 200000",
+        "result": "2160 pairs; largest in range (199931, 199933)",
+        "runtime_sec": 9.4,
+        "checked_on": "2026-09-29",
+        "caveat": "Exact counting requires no assumption. Only the INFINITY of the sequence is conjectural."
+      },
+      "verified_elsewhere": {
+        "bound": "infinitely many prime gaps of bounded size; best unconditional bound is 246",
+        "source": "Zhang (2013); Maynard and Tao; Polymath8b"
+      },
+      "open_edge": "Infinitude at gap exactly 2. Bounded gaps are not twins: proving infinitely many pairs at p+2k for some k <= 123 does not single out k=1. The obstruction is the sieve parity barrier, a limit of method rather than arithmetic.",
+      "note": "Twin counting shares goldbach_twins.py and is cross-checked the same way, for the same reason: a bounded search that silently drops cases looks exactly like evidence."
+    }
+  ],
+  "counts": {
+    "problems": 10,
+    "open": 9,
+    "solved": 1,
+    "with_tool": 5,
+    "without_tool": 5,
+    "with_tool_note": "Five entries have a tool because goldbach_twins.py serves two entries (Goldbach, twin primes). There are six tool FILES in tools/, and four of the five tool-less entries are Millennium problems plus Poincare, which is solved and needs no tool.",
+    "note": "Counts exclude problems/nothing.md, which is not a problem and carries no exhibit card."
+  }
+}

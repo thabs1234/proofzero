@@ -23,6 +23,10 @@ jobs:
         python -m pip install flake8
         # fail on syntax errors / undefined names; style is advisory
         flake8 tools --count --select=E9,F63,F7,F82 --show-source --statistics
+    - name: _status.json agrees with the notes and the tools
+      run: |
+        # Guards against the machine-readable mirror drifting from the prose.
+        python tools/check_status.py
     - name: Self-checks and negative controls
       run: |
         # These must fail loudly if their subject is broken:
@@ -36,3 +40,8 @@ jobs:
         python tools/collatz_hunt.py 10000 --top 3
         python tools/goldbach_twins.py 20000 --sample
         python tools/pnp_probe.py 15 4.26
+    - name: Full make verify (must exit non-zero on any regression)
+      run: |
+        # The same target a contributor runs locally. Deliberately named
+        # "verify" and not "green": no check here advances a conjecture.
+        make verify

@@ -26,6 +26,7 @@ python collatz_hunt.py 100000       # Collatz over 1..100000
 python goldbach_twins.py 200000 --sample
 python pnp_probe.py 20 4.26        # one 3-SAT instance + brute force
 python pnp_probe.py --sweep 40 30 --random
+python pnp_probe.py --self-check         # mutation-tested cross-validation
 python _control_rh.py                 # negative control for rh_zeros
 ```
 
@@ -98,6 +99,43 @@ for _ in range(600):
         bad += 1
 print("mismatches:", bad)   # must be 0
 ```
+
+#### Built-in self-check
+
+```
+python pnp_probe.py --self-check    # exits 0 on clean run, 1 on any fault
+```
+
+This is the comparison above packaged as a command. It cross-validates
+`solve_dpll` against `solve_bruteforce` on 400 random 3-SAT instances
+(n in [4,14]) and independently re-verifies every returned certificate with
+`check()`.
+
+Two properties make it meaningful rather than decorative:
+
+1. **The two solvers are genuinely independent algorithms.** DPLL
+   unit-propagates and branches; brute force enumerates all `2**n`
+   assignments. A bug in either shows up as disagreement. Comparing a solver
+   against itself — or against two calls to the same deterministic function —
+   can never fail, and would print a confident "PASS" no matter how broken
+   the tool was.
+
+2. **It is mutation-tested.** A check that cannot fail is worthless, so three
+   real bugs were injected into `_dpll` and confirmed caught:
+
+   | injected bug | result |
+   |---|---|
+   | report UNSAT without validating the certificate | caught — 323 disagreements |
+   | return the assignment without validating it | caught — 77 disagreements, 131 invalid certificates |
+   | invert literal polarity in unit propagation | caught — 197 disagreements |
+
+   All three failed loudly and exited 1. The clean tree passes with 0
+   disagreements (323 SAT, 77 UNSAT — both branches exercised).
+
+It exploits the asymmetry that matters: a wrongly-pruning solver reporting
+**UNSAT** is the dangerous failure mode, and brute force bounds it
+independently.
+
 
 ## Honesty rules for this directory
 

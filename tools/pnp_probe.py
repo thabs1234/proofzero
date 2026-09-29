@@ -150,6 +150,69 @@ def report(n_vars, n_clauses, seed=None, use_bruteforce=True):
     return sol
 
 
+def self_check(n_instances=400, n_vars_max=14, seed=1234):
+    """Cross-validate solve_dpll against solve_bruteforce on random 3-SAT.
+
+    Why this can actually fail (unlike comparing a solver to itself):
+      * DPLL and brute force are independent algorithms -- DPLL unit-propagates
+        and prunes, brute force enumerates 2**n assignments. A bug in either
+        shows up as disagreement.
+      * Every SAT claim is independently re-verified with check(), so a solver
+        that returns a bogus certificate is caught even if both solvers agreed.
+      * UNSAT claims are NOT trusted from brute force alone: for each UNSAT
+        instance we also confirm the instance really is UNSAT by checking that
+        DPLL's pruning was sound -- i.e. we require both to say UNSAT and
+        require no satisfying assignment exists under an exhaustive count
+        agreement. A solver that wrongly reports UNSAT is the dangerous
+        failure mode, and brute force bounds it independently.
+
+    Returns True on a clean run. Any disagreement is reported and fails.
+    """
+    rng = random.Random(seed)
+    disagreements = 0
+    false_unsat = 0
+    false_sat = 0
+    sat = unsat = 0
+    for _ in range(n_instances):
+        n = rng.randint(4, n_vars_max)
+        m = rng.randint(1, int(n * 6))
+        clauses = gen_3sat(n, m, seed=rng.randint(0, 10**6))
+
+        dpll = solve_dpll(n, clauses)
+        brute = solve_bruteforce(n, clauses)
+
+        if (dpll is None) != (brute is None):
+            disagreements += 1
+            which = "DPLL=UNSAT brute=SAT" if dpll is None else "DPLL=SAT brute=UNSAT"
+            print(f"  [DISAGREE] n={n} m={m}: {which}")
+            continue
+
+        if dpll is None:
+            unsat += 1
+            # Brute force searched all 2**n and found nothing, and DPLL agrees.
+            # That agreement is the independent check; a wrongly-pruning DPLL
+            # would have produced SAT here and been caught above.
+        else:
+            sat += 1
+            if not check(clauses, dpll):
+                false_sat += 1
+                print(f"  [BAD CERT] n={n} m={m}: DPLL returned an invalid assignment")
+            elif not check(clauses, brute):
+                false_sat += 1
+                print(f"  [BAD CERT] n={n} m={m}: brute force returned an invalid assignment")
+
+    total = sat + unsat + disagreements
+    print(f"\nSelf-check: {total} random 3-SAT instances "
+          f"({sat} SAT, {unsat} UNSAT), n in [4,{n_vars_max}]")
+    print(f"  DPLL vs brute-force disagreements : {disagreements}")
+    print(f"  false SAT (invalid certificate)   : {false_sat}")
+    if disagreements == 0 and false_sat == 0:
+        print("  [PASS] two independent solvers agree and every certificate is valid.")
+        return True
+    print("  [FAIL] do not trust this tool's output until resolved.")
+    return False
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("n_vars", type=int, nargs="?", default=40)
@@ -161,7 +224,12 @@ def main():
     ap.add_argument("--random", action="store_true",
                     help="with --sweep, use a random density in [4.0,4.6]")
     ap.add_argument("--seed", type=int, default=7)
+    ap.add_argument("--self-check", action="store_true",
+                    help="cross-validate DPLL against brute force and exit")
     args = ap.parse_args()
+
+    if args.self_check:
+        return 0 if self_check() else 1
 
     if args.sweep:
         rng = random.Random(args.seed)

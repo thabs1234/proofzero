@@ -19,7 +19,7 @@
 
 | Path | Contents |
 |---|---|
-| `problems/millennium-prize/` | 6 open + 1 solved Clay Institute problems |
+| `problems/millennium-prize/` | All 7 Clay Millennium Prize Problems (6 open, 1 solved) |
 | `problems/classic-conjectures/` | Goldbach, Twin Prime, Collatz |
 | `problems/_template.md` | Template for adding new problems |
 | `notes/` | Personal research notes |
@@ -44,9 +44,29 @@
 
 | Problem | Year | Status |
 |---|---|---|
-| Goldbach Conjecture | 1742 | 🔴 Open |
-| Twin Prime Conjecture | 1849 | 🔴 Open |
-| Collatz Conjecture | 1937 | 🔴 Open |
+| Goldbach Conjecture | 1742 (Euler letter to Goldbach) | 🔴 Open |
+| Twin Prime Conjecture | 1849 (de Polignac) | 🔴 Open |
+| Collatz Conjecture | 1937 (stated, unattributed origin) | 🔴 Open |
+
+## What this repository is, and is not
+
+This is a **notes repository**. It contains no proofs, no proof
+assistant, and no verifier. Every note is written in three layers:
+
+- what is **known**, with the primary source that establishes it;
+- what a **tool here can actually check**, and the exact bound it checks;
+- what remains **open**, stated as an open edge rather than a soft guess.
+
+`tools/` holds small bounded computations that give **finite evidence**
+for each problem. Their outputs are consistent with the conjecture over
+the range they cover, and that is all they establish — a bounded search
+cannot settle a general statement. Nothing in this repository resolves
+any of the ten problems it describes, and no file here should be cited as
+if it did.
+
+Citations are given to primary sources where the claim is attributed, and
+places where a result is conditional, partial, or frequently misreported
+are marked as such.
 
 ## Adding a Problem
 

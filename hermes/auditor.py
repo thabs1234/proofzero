@@ -234,7 +234,15 @@ def main() -> int:
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--check", action="store_true")
     args = ap.parse_args()
-    DRY_RUN = args.dry_run
+    # --check means "no git, no remote writes", so it must also suppress
+    # failure reporting. Without this, a check-only run in CI still called
+    # `gh issue create` / `gh pr create` -- which failed there for lack of
+    # GH_TOKEN, then tried `git checkout -b` on a read-only checkout.
+    # CI must never attempt a remote write, so --check implies --dry-run.
+    if args.check:
+        DRY_RUN = True
+    else:
+        DRY_RUN = args.dry_run
 
     RUNS.mkdir(parents=True, exist_ok=True)
     log("=" * 66)

@@ -32,6 +32,14 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          # tools/rh_zeros.py and tools/_control_rh.py import mpmath.
+          # The first CI failure of this workflow was a missing mpmath,
+          # which the auditor correctly reported and nothing else caught.
+          python -m pip install mpmath
+
       - name: Audit (checks only; no git, no remote writes)
         run: python hermes/auditor.py --check
 

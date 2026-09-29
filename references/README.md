@@ -43,6 +43,12 @@ result is a preprint or has been revised, that is noted.
 - Ladyzhenskaya, O. — the inequality underpinning partial regularity
 - Constantin, P. & Fefferman, A. (1993) — *Geometric Singularities*, the
   key account of the vorticity-stretching obstacle
+- Note on a circulating claim: an encyclopedia summary annotates this
+  problem "(solution claimed)". No primary source for such a claim was
+  located (arXiv searched by topic, title, and author-agnostic terms; the
+  lab's own page was unreadable). This line records the *absence* of a
+  primary source and is deliberately kept out of the list above, which is
+  reserved for sources of actual mathematics. Status remains Open.
 
 ### Yang–Mills and Mass Gap
   (`problems/millennium-prize/yang-mills-mass-gap.md`)

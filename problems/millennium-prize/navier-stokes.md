@@ -29,6 +29,32 @@
   achievable Reynolds numbers is not evidence for the conjecture in any
   formal sense.
 
+### A "solution claimed" annotation, and what it is worth
+
+As of this writing, the reference encyclopedia's summary of the Millennium
+Prize Problems carries the parenthetical **"(solution claimed)"** against
+Navier–Stokes. That is worth recording precisely because of what it is: a
+claim is in circulation, and this repository could not locate a primary
+source for it. An encyclopedia annotation is not a proof, not a refereed
+report, and not an adjudication by the Clay Mathematics Institute, whose own
+site still lists the 3D case as open. The Clay prize has no mechanism by
+which a solution is recognized quietly; a resolution would be a public event
+with a named committee, and no such event has been reported here.
+
+Searching by topic, title, and author-agnostic terms on arXiv returned no
+paper corresponding to such a claim. That is a statement about the search
+that was run, not a proof that no such document exists. Perelman, by
+contrast, is the template for what an actual resolution looks like: three
+arXiv preprints, an independent verification by Robinson (2004) and Regan
+(2006), a documented erratum in v1 of the third paper, and a $1M prize left
+unclaimed. A claim of this kind should be expected to travel that whole
+route before it belongs in a status line.
+
+So the honest report is: *a solution is claimed in secondary sources; no
+primary source was located; nothing is reproduced here.* The status stays
+**Open** and the local tool stays **none**. A claim does not become a bound,
+and this repository will not render it as one.
+
 ## Statement
 
 Do smooth, globally defined solutions to the 3D Navier-Stokes equations exist for all time, given smooth initial conditions?

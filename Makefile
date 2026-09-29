@@ -32,13 +32,14 @@ verify:
 	@fail=0; \
 	run() { \
 		printf '\n=== %s\n' "$$1"; \
-		$$PYTHON $$2 || { printf '  FAILED (exit %s)\n' "$$?"; fail=$$((fail+1)); }; \
+		$(PYTHON) $$2 || { printf '  FAILED (exit %s)\n' "$$?"; fail=$$((fail+1)); }; \
 	}; \
 	run "Riemann: first 20 zeros, worst deviation from Re(s)=1/2" "$(TOOLS)/rh_zeros.py 20"; \
 	run "Riemann negative control: planted off-line zero must be detected" "$(TOOLS)/_control_rh.py"; \
 	run "P vs NP: 400 random 3-SAT instances, DPLL vs brute force" "$(TOOLS)/pnp_probe.py --self-check"; \
 	run "Collatz: 200000 starting values, counterexample search" "$(TOOLS)/collatz_hunt.py 200000 --top 1"; \
 	run "Goldbach: every even n <= 20000, cross-checked" "$(TOOLS)/goldbach_twins.py 20000 --sample"; \
+	run "Twin primes: all pairs (p, p+2) up to 200000" "$(TOOLS)/goldbach_twins.py 200000 --sample"; \
 	run "P vs NP: verification/search asymmetry at n=20, m=85" "$(TOOLS)/pnp_probe.py 15 4.26"; \
 	printf '\n'; \
 	if [ "$$fail" -ne 0 ]; then \

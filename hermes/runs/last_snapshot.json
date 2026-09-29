@@ -1,0 +1,19 @@
+{
+  "n": 10,
+  "open": 9,
+  "solved": 1,
+  "with_tool": 5,
+  "no_tool": 5,
+  "ids": [
+    "birch-swinnerton-dyer",
+    "collatz",
+    "goldbach",
+    "hodge-conjecture",
+    "navier-stokes",
+    "p-vs-np",
+    "poincare-conjecture",
+    "riemann-hypothesis",
+    "twin-prime",
+    "yang-mills-mass-gap"
+  ]
+}

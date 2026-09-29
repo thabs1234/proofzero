@@ -121,7 +121,13 @@ setTimeout(() => {
   // JSON-sourced string out of each card, then require the residue
   // (labels, chrome, the page's own wording) to be free of claims.
   const BANNED = ["2^68", "2^70", "2^69", "4\u00d710^18", "4x10^18", "10^12", "10^13",
-                  "10^6 zeros", "breakthrough", "proved", "proof that", "verified to"];
+                  "10^6 zeros", "breakthrough", "proved", "proof that", "verified to",
+                  // An auditor run mutated "never a proof" -> "is a proof" and the
+                  // checker passed. Banning "proved"/"proof that" does not catch
+                  // the plain assertion, so name the assertion forms too.
+                  "is a proof", "are proofs", "constitutes a proof", "this is a proof",
+                  "solves the", "solution to the", "we have solved", "fully solved",
+                  "settles the", "resolves the"];
   let fail2 = 0;
   for (const p of problems) {
     const r = byTitle[p.title];
@@ -169,6 +175,30 @@ setTimeout(() => {
   // Fold AFTER both the card and chrome scans, so neither can be silently
   // reported-but-not-failed.
   if (fail2) { fail += fail2; }
+
+  // The chrome must AFFIRMATIVELY carry the no-local-check disclosure.
+  // An auditor run deleted the sentence outright and every other check
+  // still passed, because nothing required the sentence to exist — only
+  // that cards not contradict it. Absence of a disclosure is itself a lie.
+  {
+    const noCheck = problems.filter((p) => !p.tool).length;
+    const plain = html
+      .replace(/<script>[\s\S]*?<\/script>/g, " ")
+      .replace(/<style>[\s\S]*?<\/style>/g, " ")
+      .replace(/<[^>]+>/g, " ")
+      .replace(/&mdash;/g, " ").replace(/&[a-z]+;/g, " ")
+      .replace(/\s+/g, " ");
+    if (noCheck > 0) {
+      // Require the AFFIRMATIVE disclosure sentence, not merely the legend
+      // label "No finite check" (which survives deleting the prose and so
+      // made an earlier version of this check vacuous).
+      const saysIt = /no (honest )?(finite|bounded) check[^.]{0,80}(is|as) a deliberate absence|computation is not the right tool|deliberate absence, not an oversight/i;
+      if (!saysIt.test(plain)) {
+        console.log(`  CHROME OMITS the no-local-check disclosure, though ${noCheck} problems have no tool`);
+        fail++;
+      }
+    }
+  }
 
   // Sanity: the sourced residue check must still be able to see a real
   // claim. If stripping removed everything, the test is vacuous.

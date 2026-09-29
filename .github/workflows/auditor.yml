@@ -1,0 +1,44 @@
+name: ProofZero Auditor
+
+# Read-only honesty audit. This workflow NEVER writes a bound, never edits a
+# problem note, and never merges anything. It runs the finite checks, the status
+# schema check, and the board anti-fabrication check, and reports failures.
+#
+# It does not push bounds. That is deliberate, not a missing feature: a bot that
+# raised bounds every six hours would put numbers in this repository that
+# nobody had reason to defend.
+
+on:
+  schedule:
+    # 02:17 UTC daily. Off the hour on purpose, so this does not join the
+    # pile of scheduled jobs all firing at :00.
+    - cron: "17 2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Audit (checks only; no git, no remote writes)
+        run: python hermes/auditor.py --check
+
+      - name: Upload run log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: audit-log-${{ github.run_id }}
+          path: hermes/runs/
+          if-no-files-found: ignore

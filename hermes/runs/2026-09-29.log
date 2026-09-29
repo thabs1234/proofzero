@@ -1,0 +1,1310 @@
+[2026-09-29T14:29:44] ==================================================================
+[2026-09-29T14:29:44] ProofZero Auditor - run start (audit only; pushes no bounds)
+[2026-09-29T14:29:44] CHECK: finite mathematical tools
+[2026-09-29T14:29:44]   make unavailable; running the checks directly
+[2026-09-29T14:29:44] $ python tools/check_status.py
+[2026-09-29T14:29:44]   _status.json is consistent with the notes and tools.
+[2026-09-29T14:29:44]     10 problems, 9 open, 1 solved, 5 with a tool
+[2026-09-29T14:29:44]     10 cited-without-reproduction, as intended.
+[2026-09-29T14:29:44]     Timings are informational; only the exact results above are asserted.
+[2026-09-29T14:29:44] $ python tools/rh_zeros.py
+[2026-09-29T14:29:44]   Checking the first 20 non-trivial zeros of zeta(s)
+[2026-09-29T14:29:44]   Solver: 2-D Newton on zeta(s)=0, started OFF the critical line.
+[2026-09-29T14:29:44]   
+[2026-09-29T14:29:44]      #                     Re(s)                     Im(s)       |Re(s)-1/2|
+[2026-09-29T14:29:44]   --------------------------------------------------------------------------
+[2026-09-29T14:29:44]      1                       0.5      14.13472514173469379               0.0
+[2026-09-29T14:29:44]      2                       0.5     21.022039638771554993               0.0
+[2026-09-29T14:29:44]      3                       0.5     25.010857580145688763               0.0
+[2026-09-29T14:29:44]      4                       0.5      30.42487612585951321               0.0
+[2026-09-29T14:29:44]      5                       0.5     32.935061587739189691               0.0
+[2026-09-29T14:29:44]      6                       0.5     37.586178158825671257               0.0
+[2026-09-29T14:29:44]      7                       0.5     40.918719012147495187               0.0
+[2026-09-29T14:29:44]      8                       0.5     43.327073280914999519               0.0
+[2026-09-29T14:29:44]      9                       0.5     48.005150881167159728               0.0
+[2026-09-29T14:29:44]     10                       0.5     49.773832477672302182               0.0
+[2026-09-29T14:29:44]     11                       0.5     52.970321477714460644               0.0
+[2026-09-29T14:29:44]     12                       0.5     56.446247697063394804               0.0
+[2026-09-29T14:29:44]     13                       0.5      59.34704400260235308               0.0
+[2026-09-29T14:29:44]     14                       0.5     60.831778524609809844               0.0
+[2026-09-29T14:29:44]     15                       0.5     65.112544048081606661               0.0
+[2026-09-29T14:29:44]     16                       0.5     67.079810529494173714               0.0
+[2026-09-29T14:29:44]     17                       0.5     69.546401711173979253               0.0
+[2026-09-29T14:29:44]     18                       0.5     72.067157674481907583               0.0
+[2026-09-29T14:29:44]     19                       0.5     75.704690699083933168               0.0
+[2026-09-29T14:29:44]     20                       0.5     77.144840068874805373               0.0
+[2026-09-29T14:29:44]   --------------------------------------------------------------------------
+[2026-09-29T14:29:44]   worst deviation: 0.0  (zero #1)
+[2026-09-29T14:29:44]   tolerance at dps=25: 1.0e-20
+[2026-09-29T14:29:44]   NOTE: deviation is exactly 0 at this precision. The real parts
+[2026-09-29T14:29:44]         converged onto 0.5 to within working precision, so the
+[2026-09-29T14:29:44]         residual rounds to zero. Raise dps to expose it. Read
+[2026-09-29T14:29:44]         this as the limit of the arithmetic, not as extra
+[2026-09-29T14:29:44]         confirmation of the hypothesis.
+[2026-09-29T14:29:44]   
+[2026-09-29T14:29:44]   Scope: the first 20 non-trivial zeros only. Zeros beyond index
+[2026-09-29T14:29:44]   20 are unconstrained by this run. Finite verification, not a proof
+[2026-09-29T14:29:44]   of the Riemann Hypothesis.
+[2026-09-29T14:29:44] $ python tools/collatz_hunt.py
+[2026-09-29T14:29:44]   
+[2026-09-29T14:29:44]   ====================================================================
+[2026-09-29T14:29:44]   Collatz search over 1..100,000
+[2026-09-29T14:29:44]   ====================================================================
+[2026-09-29T14:29:44]   starts tested     : 100,000
+[2026-09-29T14:29:44]   all reached 1     : yes (within cap 10,000,000)
+[2026-09-29T14:29:44]   median trajectory : 99 steps
+[2026-09-29T14:29:44]   mean trajectory   : 107.5 steps
+[2026-09-29T14:29:44]   max trajectory    : 350 steps
+[2026-09-29T14:29:44]   max peak reached  : 1,570,824,736
+[2026-09-29T14:29:44]   starts exceeding peak 10^6: 7,903
+[2026-09-29T14:29:44]   
+[2026-09-29T14:29:44]   top 10 longest trajectories:
+[2026-09-29T14:29:44]          start     steps            peak
+[2026-09-29T14:29:44]         77,031       350      21,933,016
+[2026-09-29T14:29:44]         52,527       339     106,358,020
+[2026-09-29T14:29:44]         78,791       337     106,358,020
+[2026-09-29T14:29:44]         60,975       334     593,279,152
+[2026-09-29T14:29:44]         91,463       332     593,279,152
+[2026-09-29T14:29:44]         88,059       332       9,402,640
+[2026-09-29T14:29:44]         87,087       332       1,431,736
+[2026-09-29T14:29:44]         63,387       329      41,163,712
+[2026-09-29T14:29:44]         99,721       327     106,358,020
+[2026-09-29T14:29:44]         95,081       327      41,163,712
+[2026-09-29T14:29:44]   
+[2026-09-29T14:29:44]   cycle 1 -> 4 -> 2 -> 1 present: yes
+[2026-09-29T14:29:44]   
+[2026-09-29T14:29:44]   These tools search and verify. A clean run is evidence AGAINST a counterexample up to the bound searched -- it is never a proof of the conjecture itself.
+[2026-09-29T14:29:44] $ python tools/goldbach_twins.py 200000 --sample
+[2026-09-29T14:29:44]   
+[2026-09-29T14:29:44]   ====================================================================
+[2026-09-29T14:29:44]   Goldbach + twin-prime search up to 200,000
+[2026-09-29T14:29:44]   ====================================================================
+[2026-09-29T14:29:44]   
+[2026-09-29T14:29:44]   -- Goldbach (strong) --
+[2026-09-29T14:29:44]   even integers checked : 99,999  (4 .. 200,000)
+[2026-09-29T14:29:44]   counterexamples      : 0
+[2026-09-29T14:29:44]   min representations  : 1
+[2026-09-29T14:29:44]   max representations  : 3,931
+[2026-09-29T14:29:44]   cross-check          : fast count cross-checked against the naive reference for every even n <= 20,000
+[2026-09-29T14:29:44]   thinnest even numbers (fewest prime-pair reps):
+[2026-09-29T14:29:44]              4  1 rep(s)
+[2026-09-29T14:29:44]              6  1 rep(s)
+[2026-09-29T14:29:44]              8  1 rep(s)
+[2026-09-29T14:29:44]             12  1 rep(s)
+[2026-09-29T14:29:44]             10  2 rep(s)
+[2026-09-29T14:29:44]             14  2 rep(s)
+[2026-09-29T14:29:44]             16  2 rep(s)
+[2026-09-29T14:29:44]             18  2 rep(s)
+[2026-09-29T14:29:44]             20  2 rep(s)
+[2026-09-29T14:29:44]             28  2 rep(s)
+[2026-09-29T14:29:44]             32  2 rep(s)
+[2026-09-29T14:29:44]             38  2 rep(s)
+[2026-09-29T14:29:44]             68  2 rep(s)
+[2026-09-29T14:29:44]             22  3 rep(s)
+[2026-09-29T14:29:44]             24  3 rep(s)
+[2026-09-29T14:29:44]   
+[2026-09-29T14:29:44]   -- Twin primes --
+[2026-09-29T14:29:44]   pairs (p, p+2) up to 200,000 : 2,160
+[2026-09-29T14:29:44]   first five          : [3, 5, 11, 17, 29]
+[2026-09-29T14:29:44]   last five           : [199601, 199739, 199751, 199811, 199931]
+[2026-09-29T14:29:44]   largest pair in range: (199,931, 199,933)
+[2026-09-29T14:29:44]   
+[2026-09-29T14:29:44]   These tools search and verify. A clean run is evidence AGAINST a counterexample up to the bound searched -- it is never a proof of the conjecture itself.
+[2026-09-29T14:29:44]   Verified frontier for Goldbach is 4e18, far beyond any local search.
+[2026-09-29T14:29:44] $ python tools/pnp_probe.py
+[2026-09-29T14:29:44]   Single instance: n=40, m=170, density=4.25
+[2026-09-29T14:29:44]   
+[2026-09-29T14:29:44]     n= 40  m= 170  density=4.25  DPLL=  20.527ms  SAT
+[2026-09-29T14:29:44]          certificate check : 0.1274 ms  (       161x faster than search)
+[2026-09-29T14:29:44]   
+[2026-09-29T14:29:44]   Search cost grows exponentially; verification grows linearly.
+[2026-09-29T14:29:44]   That asymmetry is the P vs NP question, demonstrated on small
+[2026-09-29T14:29:44]   instances -- not resolved. See problems/millennium-prize/p-vs-np.md
+[2026-09-29T14:29:44] CHECK: status schema
+[2026-09-29T14:29:44] $ python tools/status_table.py
+[2026-09-29T14:29:44]   ProofZero -- 10 problems, 9 open, 1 solved
+[2026-09-29T14:29:44]   
+[2026-09-29T14:29:44]   PROBLEM                         STATUS  BOUND ACTUALLY CHECKED IN THIS REPO
+[2026-09-29T14:29:44]   --------------------------------------------------------------------------------------------------
+[2026-09-29T14:29:44]   Riemann Hypothesis              open    first 20 non-trivial zeros, located by two-variable Newton
+[2026-09-29T14:29:44]   P vs NP                         open    400 random 3-SAT instances, n in [4,14], seed 1234
+[2026-09-29T14:29:44]   Navier-Stokes Existence and Sm  open    no honest finite check exists
+[2026-09-29T14:29:44]   Yang-Mills Existence and Mass   open    no honest finite check exists
+[2026-09-29T14:29:44]   Birch and Swinnerton-Dyer Conj  open    no honest finite check exists
+[2026-09-29T14:29:44]   Hodge Conjecture                open    no honest finite check exists
+[2026-09-29T14:29:44]   Poincare Conjecture             solved  solved 2002-2003 (proof; not reproduced here)
+[2026-09-29T14:29:44]   Collatz Conjecture              open    200000 starting values, each trajectory searched with a pe
+[2026-09-29T14:29:44]   Goldbach Conjecture             open    every even n <= 20000, representation counts cross-checked
+[2026-09-29T14:29:44]   Twin Prime Conjecture           open    exact twin pair count through 200000
+[2026-09-29T14:29:44]   
+[2026-09-29T14:29:44]   Larger published bounds are CITED in each note, not reproduced here.
+[2026-09-29T14:29:44]   No tool, and none coming: birch-swinnerton-dyer, hodge-conjecture, navier-stokes, yang-mills-mass-gap, poincare (solved, needs no tool).
+[2026-09-29T14:29:44]   None of this resolves any open problem.
+[2026-09-29T14:29:44] CHECK: board honesty (anti-fabrication)
+[2026-09-29T14:29:44] $ node tools/check_greenboard.cjs
+[2026-09-29T14:29:44]   repo root: C:\Users\Thabang\proofzero
+[2026-09-29T14:29:44]   extracted script: 6024 chars
+[2026-09-29T14:29:44]   
+[2026-09-29T14:29:44]   STATS:
+[2026-09-29T14:29:44]     5 run here
+[2026-09-29T14:29:44]     4 cited, not reproduced
+[2026-09-29T14:29:44]     0 no finite check
+[2026-09-29T14:29:44]     1 solved
+[2026-09-29T14:29:44]     10 problems &middot; 4 with no local check
+[2026-09-29T14:29:44]   
+[2026-09-29T14:29:44]   CARDS RENDERED: 10
+[2026-09-29T14:29:44]   
+[2026-09-29T14:29:44]   problems=10 cards=10 noLocalCheck=4
+[2026-09-29T14:29:44]   
+[2026-09-29T14:29:44]   ALL RENDER CHECKS PASSED
+[2026-09-29T14:29:44] status snapshot: {"n": 10, "open": 9, "solved": 1, "with_tool": 5, "no_tool": 5, "ids": ["birch-swinnerton-dyer", "collatz", "goldbach", "hodge-conjecture", "navier-stokes", "p-vs-np", "poincare-conjecture", "riemann-hypothesis", "twin-prime", "yang-mills-mass-gap"]}
+[2026-09-29T14:29:44] all checks passed
+[2026-09-29T14:29:44] ProofZero Auditor - run end
+[2026-09-29T14:30:05] ==================================================================
+[2026-09-29T14:30:05] ProofZero Auditor - run start (audit only; pushes no bounds)
+[2026-09-29T14:30:05] CHECK: finite mathematical tools
+[2026-09-29T14:30:05]   make unavailable; running the checks directly
+[2026-09-29T14:30:05] $ python tools/check_status.py
+[2026-09-29T14:30:05]   _status.json is consistent with the notes and tools.
+[2026-09-29T14:30:05]     10 problems, 9 open, 1 solved, 5 with a tool
+[2026-09-29T14:30:05]     10 cited-without-reproduction, as intended.
+[2026-09-29T14:30:05]     Timings are informational; only the exact results above are asserted.
+[2026-09-29T14:30:05] $ python tools/rh_zeros.py
+[2026-09-29T14:30:05]   Checking the first 20 non-trivial zeros of zeta(s)
+[2026-09-29T14:30:05]   Solver: 2-D Newton on zeta(s)=0, started OFF the critical line.
+[2026-09-29T14:30:05]   
+[2026-09-29T14:30:05]      #                     Re(s)                     Im(s)       |Re(s)-1/2|
+[2026-09-29T14:30:05]   --------------------------------------------------------------------------
+[2026-09-29T14:30:05]      1                       0.5      14.13472514173469379               0.0
+[2026-09-29T14:30:05]      2                       0.5     21.022039638771554993               0.0
+[2026-09-29T14:30:05]      3                       0.5     25.010857580145688763               0.0
+[2026-09-29T14:30:05]      4                       0.5      30.42487612585951321               0.0
+[2026-09-29T14:30:05]      5                       0.5     32.935061587739189691               0.0
+[2026-09-29T14:30:05]      6                       0.5     37.586178158825671257               0.0
+[2026-09-29T14:30:05]      7                       0.5     40.918719012147495187               0.0
+[2026-09-29T14:30:05]      8                       0.5     43.327073280914999519               0.0
+[2026-09-29T14:30:05]      9                       0.5     48.005150881167159728               0.0
+[2026-09-29T14:30:05]     10                       0.5     49.773832477672302182               0.0
+[2026-09-29T14:30:05]     11                       0.5     52.970321477714460644               0.0
+[2026-09-29T14:30:05]     12                       0.5     56.446247697063394804               0.0
+[2026-09-29T14:30:05]     13                       0.5      59.34704400260235308               0.0
+[2026-09-29T14:30:05]     14                       0.5     60.831778524609809844               0.0
+[2026-09-29T14:30:05]     15                       0.5     65.112544048081606661               0.0
+[2026-09-29T14:30:05]     16                       0.5     67.079810529494173714               0.0
+[2026-09-29T14:30:05]     17                       0.5     69.546401711173979253               0.0
+[2026-09-29T14:30:05]     18                       0.5     72.067157674481907583               0.0
+[2026-09-29T14:30:05]     19                       0.5     75.704690699083933168               0.0
+[2026-09-29T14:30:05]     20                       0.5     77.144840068874805373               0.0
+[2026-09-29T14:30:05]   --------------------------------------------------------------------------
+[2026-09-29T14:30:05]   worst deviation: 0.0  (zero #1)
+[2026-09-29T14:30:05]   tolerance at dps=25: 1.0e-20
+[2026-09-29T14:30:05]   NOTE: deviation is exactly 0 at this precision. The real parts
+[2026-09-29T14:30:05]         converged onto 0.5 to within working precision, so the
+[2026-09-29T14:30:05]         residual rounds to zero. Raise dps to expose it. Read
+[2026-09-29T14:30:05]         this as the limit of the arithmetic, not as extra
+[2026-09-29T14:30:05]         confirmation of the hypothesis.
+[2026-09-29T14:30:05]   
+[2026-09-29T14:30:05]   Scope: the first 20 non-trivial zeros only. Zeros beyond index
+[2026-09-29T14:30:05]   20 are unconstrained by this run. Finite verification, not a proof
+[2026-09-29T14:30:05]   of the Riemann Hypothesis.
+[2026-09-29T14:30:05] $ python tools/collatz_hunt.py
+[2026-09-29T14:30:05]   
+[2026-09-29T14:30:05]   ====================================================================
+[2026-09-29T14:30:05]   Collatz search over 1..100,000
+[2026-09-29T14:30:05]   ====================================================================
+[2026-09-29T14:30:05]   starts tested     : 100,000
+[2026-09-29T14:30:05]   all reached 1     : yes (within cap 10,000,000)
+[2026-09-29T14:30:05]   median trajectory : 99 steps
+[2026-09-29T14:30:05]   mean trajectory   : 107.5 steps
+[2026-09-29T14:30:05]   max trajectory    : 350 steps
+[2026-09-29T14:30:05]   max peak reached  : 1,570,824,736
+[2026-09-29T14:30:05]   starts exceeding peak 10^6: 7,903
+[2026-09-29T14:30:05]   
+[2026-09-29T14:30:05]   top 10 longest trajectories:
+[2026-09-29T14:30:05]          start     steps            peak
+[2026-09-29T14:30:05]         77,031       350      21,933,016
+[2026-09-29T14:30:05]         52,527       339     106,358,020
+[2026-09-29T14:30:05]         78,791       337     106,358,020
+[2026-09-29T14:30:05]         60,975       334     593,279,152
+[2026-09-29T14:30:05]         91,463       332     593,279,152
+[2026-09-29T14:30:05]         88,059       332       9,402,640
+[2026-09-29T14:30:05]         87,087       332       1,431,736
+[2026-09-29T14:30:05]         63,387       329      41,163,712
+[2026-09-29T14:30:05]         99,721       327     106,358,020
+[2026-09-29T14:30:05]         95,081       327      41,163,712
+[2026-09-29T14:30:05]   
+[2026-09-29T14:30:05]   cycle 1 -> 4 -> 2 -> 1 present: yes
+[2026-09-29T14:30:05]   
+[2026-09-29T14:30:05]   These tools search and verify. A clean run is evidence AGAINST a counterexample up to the bound searched -- it is never a proof of the conjecture itself.
+[2026-09-29T14:30:05] $ python tools/goldbach_twins.py 200000 --sample
+[2026-09-29T14:30:05]   
+[2026-09-29T14:30:05]   ====================================================================
+[2026-09-29T14:30:05]   Goldbach + twin-prime search up to 200,000
+[2026-09-29T14:30:05]   ====================================================================
+[2026-09-29T14:30:05]   
+[2026-09-29T14:30:05]   -- Goldbach (strong) --
+[2026-09-29T14:30:05]   even integers checked : 99,999  (4 .. 200,000)
+[2026-09-29T14:30:05]   counterexamples      : 0
+[2026-09-29T14:30:05]   min representations  : 1
+[2026-09-29T14:30:05]   max representations  : 3,931
+[2026-09-29T14:30:05]   cross-check          : fast count cross-checked against the naive reference for every even n <= 20,000
+[2026-09-29T14:30:05]   thinnest even numbers (fewest prime-pair reps):
+[2026-09-29T14:30:05]              4  1 rep(s)
+[2026-09-29T14:30:05]              6  1 rep(s)
+[2026-09-29T14:30:05]              8  1 rep(s)
+[2026-09-29T14:30:05]             12  1 rep(s)
+[2026-09-29T14:30:05]             10  2 rep(s)
+[2026-09-29T14:30:05]             14  2 rep(s)
+[2026-09-29T14:30:05]             16  2 rep(s)
+[2026-09-29T14:30:05]             18  2 rep(s)
+[2026-09-29T14:30:05]             20  2 rep(s)
+[2026-09-29T14:30:05]             28  2 rep(s)
+[2026-09-29T14:30:05]             32  2 rep(s)
+[2026-09-29T14:30:05]             38  2 rep(s)
+[2026-09-29T14:30:05]             68  2 rep(s)
+[2026-09-29T14:30:05]             22  3 rep(s)
+[2026-09-29T14:30:05]             24  3 rep(s)
+[2026-09-29T14:30:05]   
+[2026-09-29T14:30:05]   -- Twin primes --
+[2026-09-29T14:30:05]   pairs (p, p+2) up to 200,000 : 2,160
+[2026-09-29T14:30:05]   first five          : [3, 5, 11, 17, 29]
+[2026-09-29T14:30:05]   last five           : [199601, 199739, 199751, 199811, 199931]
+[2026-09-29T14:30:05]   largest pair in range: (199,931, 199,933)
+[2026-09-29T14:30:05]   
+[2026-09-29T14:30:05]   These tools search and verify. A clean run is evidence AGAINST a counterexample up to the bound searched -- it is never a proof of the conjecture itself.
+[2026-09-29T14:30:05]   Verified frontier for Goldbach is 4e18, far beyond any local search.
+[2026-09-29T14:30:05] $ python tools/pnp_probe.py
+[2026-09-29T14:30:05]   Single instance: n=40, m=170, density=4.25
+[2026-09-29T14:30:05]   
+[2026-09-29T14:30:05]     n= 40  m= 170  density=4.25  DPLL=  11.807ms  SAT
+[2026-09-29T14:30:05]          certificate check : 0.0865 ms  (       136x faster than search)
+[2026-09-29T14:30:05]   
+[2026-09-29T14:30:05]   Search cost grows exponentially; verification grows linearly.
+[2026-09-29T14:30:05]   That asymmetry is the P vs NP question, demonstrated on small
+[2026-09-29T14:30:05]   instances -- not resolved. See problems/millennium-prize/p-vs-np.md
+[2026-09-29T14:30:05] CHECK: status schema
+[2026-09-29T14:30:05] $ python tools/status_table.py
+[2026-09-29T14:30:05]   ProofZero -- 10 problems, 9 open, 1 solved
+[2026-09-29T14:30:05]   
+[2026-09-29T14:30:05]   PROBLEM                         STATUS  BOUND ACTUALLY CHECKED IN THIS REPO
+[2026-09-29T14:30:05]   --------------------------------------------------------------------------------------------------
+[2026-09-29T14:30:05]   Riemann Hypothesis              open    first 20 non-trivial zeros, located by two-variable Newton
+[2026-09-29T14:30:05]   P vs NP                         open    400 random 3-SAT instances, n in [4,14], seed 1234
+[2026-09-29T14:30:05]   Navier-Stokes Existence and Sm  open    no honest finite check exists
+[2026-09-29T14:30:05]   Yang-Mills Existence and Mass   open    no honest finite check exists
+[2026-09-29T14:30:05]   Birch and Swinnerton-Dyer Conj  open    no honest finite check exists
+[2026-09-29T14:30:05]   Hodge Conjecture                open    no honest finite check exists
+[2026-09-29T14:30:05]   Poincare Conjecture             solved  solved 2002-2003 (proof; not reproduced here)
+[2026-09-29T14:30:05]   Collatz Conjecture              open    200000 starting values, each trajectory searched with a pe
+[2026-09-29T14:30:05]   Goldbach Conjecture             open    every even n <= 20000, representation counts cross-checked
+[2026-09-29T14:30:05]   Twin Prime Conjecture           open    exact twin pair count through 200000
+[2026-09-29T14:30:05]   
+[2026-09-29T14:30:05]   Larger published bounds are CITED in each note, not reproduced here.
+[2026-09-29T14:30:05]   No tool, and none coming: birch-swinnerton-dyer, hodge-conjecture, navier-stokes, yang-mills-mass-gap, poincare (solved, needs no tool).
+[2026-09-29T14:30:05]   None of this resolves any open problem.
+[2026-09-29T14:30:05] CHECK: board honesty (anti-fabrication)
+[2026-09-29T14:30:05] $ node tools/check_greenboard.cjs
+[2026-09-29T14:30:05]   repo root: C:\Users\Thabang\proofzero
+[2026-09-29T14:30:05]   extracted script: 6024 chars
+[2026-09-29T14:30:05]   
+[2026-09-29T14:30:05]   STATS:
+[2026-09-29T14:30:05]     5 run here
+[2026-09-29T14:30:05]     4 cited, not reproduced
+[2026-09-29T14:30:05]     0 no finite check
+[2026-09-29T14:30:05]     1 solved
+[2026-09-29T14:30:05]     10 problems &middot; 4 with no local check
+[2026-09-29T14:30:05]   
+[2026-09-29T14:30:05]   CARDS RENDERED: 10
+[2026-09-29T14:30:05]   
+[2026-09-29T14:30:05]   problems=10 cards=10 noLocalCheck=4
+[2026-09-29T14:30:05]   
+[2026-09-29T14:30:05]   ALL RENDER CHECKS PASSED
+[2026-09-29T14:30:05] status snapshot: {"n": 10, "open": 9, "solved": 1, "with_tool": 5, "no_tool": 5, "ids": ["birch-swinnerton-dyer", "collatz", "goldbach", "hodge-conjecture", "navier-stokes", "p-vs-np", "poincare-conjecture", "riemann-hypothesis", "twin-prime", "yang-mills-mass-gap"]}
+[2026-09-29T14:30:05] no drift: status identical to previous run
+[2026-09-29T14:30:05] all checks passed
+[2026-09-29T14:30:05] ProofZero Auditor - run end
+[2026-09-29T14:30:35] ==================================================================
+[2026-09-29T14:30:35] ProofZero Auditor - run start (audit only; pushes no bounds)
+[2026-09-29T14:30:35] CHECK: finite mathematical tools
+[2026-09-29T14:30:35]   make unavailable; running the checks directly
+[2026-09-29T14:30:35] $ python tools/check_status.py
+[2026-09-29T14:30:35]   _status.json is consistent with the notes and tools.
+[2026-09-29T14:30:35]     10 problems, 9 open, 1 solved, 5 with a tool
+[2026-09-29T14:30:35]     10 cited-without-reproduction, as intended.
+[2026-09-29T14:30:35]     Timings are informational; only the exact results above are asserted.
+[2026-09-29T14:30:35] $ python tools/rh_zeros.py
+[2026-09-29T14:30:35]   Checking the first 20 non-trivial zeros of zeta(s)
+[2026-09-29T14:30:35]   Solver: 2-D Newton on zeta(s)=0, started OFF the critical line.
+[2026-09-29T14:30:35]   
+[2026-09-29T14:30:35]      #                     Re(s)                     Im(s)       |Re(s)-1/2|
+[2026-09-29T14:30:35]   --------------------------------------------------------------------------
+[2026-09-29T14:30:35]      1                       0.5      14.13472514173469379               0.0
+[2026-09-29T14:30:35]      2                       0.5     21.022039638771554993               0.0
+[2026-09-29T14:30:35]      3                       0.5     25.010857580145688763               0.0
+[2026-09-29T14:30:35]      4                       0.5      30.42487612585951321               0.0
+[2026-09-29T14:30:35]      5                       0.5     32.935061587739189691               0.0
+[2026-09-29T14:30:35]      6                       0.5     37.586178158825671257               0.0
+[2026-09-29T14:30:35]      7                       0.5     40.918719012147495187               0.0
+[2026-09-29T14:30:35]      8                       0.5     43.327073280914999519               0.0
+[2026-09-29T14:30:35]      9                       0.5     48.005150881167159728               0.0
+[2026-09-29T14:30:35]     10                       0.5     49.773832477672302182               0.0
+[2026-09-29T14:30:35]     11                       0.5     52.970321477714460644               0.0
+[2026-09-29T14:30:35]     12                       0.5     56.446247697063394804               0.0
+[2026-09-29T14:30:35]     13                       0.5      59.34704400260235308               0.0
+[2026-09-29T14:30:35]     14                       0.5     60.831778524609809844               0.0
+[2026-09-29T14:30:35]     15                       0.5     65.112544048081606661               0.0
+[2026-09-29T14:30:35]     16                       0.5     67.079810529494173714               0.0
+[2026-09-29T14:30:35]     17                       0.5     69.546401711173979253               0.0
+[2026-09-29T14:30:35]     18                       0.5     72.067157674481907583               0.0
+[2026-09-29T14:30:35]     19                       0.5     75.704690699083933168               0.0
+[2026-09-29T14:30:35]     20                       0.5     77.144840068874805373               0.0
+[2026-09-29T14:30:35]   --------------------------------------------------------------------------
+[2026-09-29T14:30:35]   worst deviation: 0.0  (zero #1)
+[2026-09-29T14:30:35]   tolerance at dps=25: 1.0e-20
+[2026-09-29T14:30:35]   NOTE: deviation is exactly 0 at this precision. The real parts
+[2026-09-29T14:30:35]         converged onto 0.5 to within working precision, so the
+[2026-09-29T14:30:35]         residual rounds to zero. Raise dps to expose it. Read
+[2026-09-29T14:30:35]         this as the limit of the arithmetic, not as extra
+[2026-09-29T14:30:35]         confirmation of the hypothesis.
+[2026-09-29T14:30:35]   
+[2026-09-29T14:30:35]   Scope: the first 20 non-trivial zeros only. Zeros beyond index
+[2026-09-29T14:30:35]   20 are unconstrained by this run. Finite verification, not a proof
+[2026-09-29T14:30:35]   of the Riemann Hypothesis.
+[2026-09-29T14:30:35] $ python tools/collatz_hunt.py
+[2026-09-29T14:30:35]   
+[2026-09-29T14:30:35]   ====================================================================
+[2026-09-29T14:30:35]   Collatz search over 1..100,000
+[2026-09-29T14:30:35]   ====================================================================
+[2026-09-29T14:30:35]   starts tested     : 100,000
+[2026-09-29T14:30:35]   all reached 1     : yes (within cap 10,000,000)
+[2026-09-29T14:30:35]   median trajectory : 99 steps
+[2026-09-29T14:30:35]   mean trajectory   : 107.5 steps
+[2026-09-29T14:30:35]   max trajectory    : 350 steps
+[2026-09-29T14:30:35]   max peak reached  : 1,570,824,736
+[2026-09-29T14:30:35]   starts exceeding peak 10^6: 7,903
+[2026-09-29T14:30:35]   
+[2026-09-29T14:30:35]   top 10 longest trajectories:
+[2026-09-29T14:30:35]          start     steps            peak
+[2026-09-29T14:30:35]         77,031       350      21,933,016
+[2026-09-29T14:30:35]         52,527       339     106,358,020
+[2026-09-29T14:30:35]         78,791       337     106,358,020
+[2026-09-29T14:30:35]         60,975       334     593,279,152
+[2026-09-29T14:30:35]         91,463       332     593,279,152
+[2026-09-29T14:30:35]         88,059       332       9,402,640
+[2026-09-29T14:30:35]         87,087       332       1,431,736
+[2026-09-29T14:30:35]         63,387       329      41,163,712
+[2026-09-29T14:30:35]         99,721       327     106,358,020
+[2026-09-29T14:30:35]         95,081       327      41,163,712
+[2026-09-29T14:30:35]   
+[2026-09-29T14:30:35]   cycle 1 -> 4 -> 2 -> 1 present: yes
+[2026-09-29T14:30:35]   
+[2026-09-29T14:30:35]   These tools search and verify. A clean run is evidence AGAINST a counterexample up to the bound searched -- it is never a proof of the conjecture itself.
+[2026-09-29T14:30:35] $ python tools/goldbach_twins.py 200000 --sample
+[2026-09-29T14:30:35]   
+[2026-09-29T14:30:35]   ====================================================================
+[2026-09-29T14:30:35]   Goldbach + twin-prime search up to 200,000
+[2026-09-29T14:30:35]   ====================================================================
+[2026-09-29T14:30:35]   
+[2026-09-29T14:30:35]   -- Goldbach (strong) --
+[2026-09-29T14:30:35]   even integers checked : 99,999  (4 .. 200,000)
+[2026-09-29T14:30:35]   counterexamples      : 0
+[2026-09-29T14:30:35]   min representations  : 1
+[2026-09-29T14:30:35]   max representations  : 3,931
+[2026-09-29T14:30:35]   cross-check          : fast count cross-checked against the naive reference for every even n <= 20,000
+[2026-09-29T14:30:35]   thinnest even numbers (fewest prime-pair reps):
+[2026-09-29T14:30:35]              4  1 rep(s)
+[2026-09-29T14:30:35]              6  1 rep(s)
+[2026-09-29T14:30:35]              8  1 rep(s)
+[2026-09-29T14:30:35]             12  1 rep(s)
+[2026-09-29T14:30:35]             10  2 rep(s)
+[2026-09-29T14:30:35]             14  2 rep(s)
+[2026-09-29T14:30:35]             16  2 rep(s)
+[2026-09-29T14:30:35]             18  2 rep(s)
+[2026-09-29T14:30:35]             20  2 rep(s)
+[2026-09-29T14:30:35]             28  2 rep(s)
+[2026-09-29T14:30:35]             32  2 rep(s)
+[2026-09-29T14:30:35]             38  2 rep(s)
+[2026-09-29T14:30:35]             68  2 rep(s)
+[2026-09-29T14:30:35]             22  3 rep(s)
+[2026-09-29T14:30:35]             24  3 rep(s)
+[2026-09-29T14:30:35]   
+[2026-09-29T14:30:35]   -- Twin primes --
+[2026-09-29T14:30:35]   pairs (p, p+2) up to 200,000 : 2,160
+[2026-09-29T14:30:35]   first five          : [3, 5, 11, 17, 29]
+[2026-09-29T14:30:35]   last five           : [199601, 199739, 199751, 199811, 199931]
+[2026-09-29T14:30:35]   largest pair in range: (199,931, 199,933)
+[2026-09-29T14:30:35]   
+[2026-09-29T14:30:35]   These tools search and verify. A clean run is evidence AGAINST a counterexample up to the bound searched -- it is never a proof of the conjecture itself.
+[2026-09-29T14:30:35]   Verified frontier for Goldbach is 4e18, far beyond any local search.
+[2026-09-29T14:30:35] $ python tools/pnp_probe.py
+[2026-09-29T14:30:35]   Single instance: n=40, m=170, density=4.25
+[2026-09-29T14:30:35]   
+[2026-09-29T14:30:35]     n= 40  m= 170  density=4.25  DPLL=  26.384ms  SAT
+[2026-09-29T14:30:35]          certificate check : 0.1262 ms  (       209x faster than search)
+[2026-09-29T14:30:35]   
+[2026-09-29T14:30:35]   Search cost grows exponentially; verification grows linearly.
+[2026-09-29T14:30:35]   That asymmetry is the P vs NP question, demonstrated on small
+[2026-09-29T14:30:35]   instances -- not resolved. See problems/millennium-prize/p-vs-np.md
+[2026-09-29T14:30:35] CHECK: status schema
+[2026-09-29T14:30:35] $ python tools/status_table.py
+[2026-09-29T14:30:35]   ProofZero -- 10 problems, 9 open, 1 solved
+[2026-09-29T14:30:35]   
+[2026-09-29T14:30:35]   PROBLEM                         STATUS  BOUND ACTUALLY CHECKED IN THIS REPO
+[2026-09-29T14:30:35]   --------------------------------------------------------------------------------------------------
+[2026-09-29T14:30:35]   Riemann Hypothesis              open    first 20 non-trivial zeros, located by two-variable Newton
+[2026-09-29T14:30:35]   P vs NP                         open    400 random 3-SAT instances, n in [4,14], seed 1234
+[2026-09-29T14:30:35]   Navier-Stokes Existence and Sm  open    no honest finite check exists
+[2026-09-29T14:30:35]   Yang-Mills Existence and Mass   open    no honest finite check exists
+[2026-09-29T14:30:35]   Birch and Swinnerton-Dyer Conj  open    no honest finite check exists
+[2026-09-29T14:30:35]   Hodge Conjecture                open    no honest finite check exists
+[2026-09-29T14:30:35]   Poincare Conjecture             solved  solved 2002-2003 (proof; not reproduced here)
+[2026-09-29T14:30:35]   Collatz Conjecture              open    200000 starting values, each trajectory searched with a pe
+[2026-09-29T14:30:35]   Goldbach Conjecture             open    every even n <= 20000, representation counts cross-checked
+[2026-09-29T14:30:35]   Twin Prime Conjecture           open    exact twin pair count through 200000
+[2026-09-29T14:30:35]   
+[2026-09-29T14:30:35]   Larger published bounds are CITED in each note, not reproduced here.
+[2026-09-29T14:30:35]   No tool, and none coming: birch-swinnerton-dyer, hodge-conjecture, navier-stokes, yang-mills-mass-gap, poincare (solved, needs no tool).
+[2026-09-29T14:30:35]   None of this resolves any open problem.
+[2026-09-29T14:30:35] CHECK: board honesty (anti-fabrication)
+[2026-09-29T14:30:35] $ node tools/check_greenboard.cjs
+[2026-09-29T14:30:35]   repo root: C:\Users\Thabang\proofzero
+[2026-09-29T14:30:35]   extracted script: 6189 chars
+[2026-09-29T14:30:35]   
+[2026-09-29T14:30:35]   STATS:
+[2026-09-29T14:30:35]     5 run here
+[2026-09-29T14:30:35]     4 cited, not reproduced
+[2026-09-29T14:30:35]     0 no finite check
+[2026-09-29T14:30:35]     1 solved
+[2026-09-29T14:30:35]     10 problems &middot; 4 with no local check
+[2026-09-29T14:30:35]   
+[2026-09-29T14:30:35]   CARDS RENDERED: 10
+[2026-09-29T14:30:35]   
+[2026-09-29T14:30:35]   problems=10 cards=10 noLocalCheck=4
+[2026-09-29T14:30:35]   
+[2026-09-29T14:30:35]   ALL RENDER CHECKS PASSED
+[2026-09-29T14:30:35] status snapshot: {"n": 10, "open": 9, "solved": 1, "with_tool": 5, "no_tool": 5, "ids": ["birch-swinnerton-dyer", "collatz", "goldbach", "hodge-conjecture", "navier-stokes", "p-vs-np", "poincare-conjecture", "riemann-hypothesis", "twin-prime", "yang-mills-mass-gap"]}
+[2026-09-29T14:30:35] no drift: status identical to previous run
+[2026-09-29T14:30:35] all checks passed
+[2026-09-29T14:30:35] ProofZero Auditor - run end
+[2026-09-29T14:30:50] ==================================================================
+[2026-09-29T14:30:50] ProofZero Auditor - run start (audit only; pushes no bounds)
+[2026-09-29T14:30:50] CHECK: finite mathematical tools
+[2026-09-29T14:30:50]   make unavailable; running the checks directly
+[2026-09-29T14:30:50] $ python tools/check_status.py
+[2026-09-29T14:30:50]   _status.json is consistent with the notes and tools.
+[2026-09-29T14:30:50]     10 problems, 9 open, 1 solved, 5 with a tool
+[2026-09-29T14:30:50]     10 cited-without-reproduction, as intended.
+[2026-09-29T14:30:50]     Timings are informational; only the exact results above are asserted.
+[2026-09-29T14:30:50] $ python tools/rh_zeros.py
+[2026-09-29T14:30:50]   Checking the first 20 non-trivial zeros of zeta(s)
+[2026-09-29T14:30:50]   Solver: 2-D Newton on zeta(s)=0, started OFF the critical line.
+[2026-09-29T14:30:50]   
+[2026-09-29T14:30:50]      #                     Re(s)                     Im(s)       |Re(s)-1/2|
+[2026-09-29T14:30:50]   --------------------------------------------------------------------------
+[2026-09-29T14:30:50]      1                       0.5      14.13472514173469379               0.0
+[2026-09-29T14:30:50]      2                       0.5     21.022039638771554993               0.0
+[2026-09-29T14:30:50]      3                       0.5     25.010857580145688763               0.0
+[2026-09-29T14:30:50]      4                       0.5      30.42487612585951321               0.0
+[2026-09-29T14:30:50]      5                       0.5     32.935061587739189691               0.0
+[2026-09-29T14:30:50]      6                       0.5     37.586178158825671257               0.0
+[2026-09-29T14:30:50]      7                       0.5     40.918719012147495187               0.0
+[2026-09-29T14:30:50]      8                       0.5     43.327073280914999519               0.0
+[2026-09-29T14:30:50]      9                       0.5     48.005150881167159728               0.0
+[2026-09-29T14:30:50]     10                       0.5     49.773832477672302182               0.0
+[2026-09-29T14:30:50]     11                       0.5     52.970321477714460644               0.0
+[2026-09-29T14:30:50]     12                       0.5     56.446247697063394804               0.0
+[2026-09-29T14:30:50]     13                       0.5      59.34704400260235308               0.0
+[2026-09-29T14:30:50]     14                       0.5     60.831778524609809844               0.0
+[2026-09-29T14:30:50]     15                       0.5     65.112544048081606661               0.0
+[2026-09-29T14:30:50]     16                       0.5     67.079810529494173714               0.0
+[2026-09-29T14:30:50]     17                       0.5     69.546401711173979253               0.0
+[2026-09-29T14:30:50]     18                       0.5     72.067157674481907583               0.0
+[2026-09-29T14:30:50]     19                       0.5     75.704690699083933168               0.0
+[2026-09-29T14:30:50]     20                       0.5     77.144840068874805373               0.0
+[2026-09-29T14:30:50]   --------------------------------------------------------------------------
+[2026-09-29T14:30:50]   worst deviation: 0.0  (zero #1)
+[2026-09-29T14:30:50]   tolerance at dps=25: 1.0e-20
+[2026-09-29T14:30:50]   NOTE: deviation is exactly 0 at this precision. The real parts
+[2026-09-29T14:30:50]         converged onto 0.5 to within working precision, so the
+[2026-09-29T14:30:50]         residual rounds to zero. Raise dps to expose it. Read
+[2026-09-29T14:30:50]         this as the limit of the arithmetic, not as extra
+[2026-09-29T14:30:50]         confirmation of the hypothesis.
+[2026-09-29T14:30:50]   
+[2026-09-29T14:30:50]   Scope: the first 20 non-trivial zeros only. Zeros beyond index
+[2026-09-29T14:30:50]   20 are unconstrained by this run. Finite verification, not a proof
+[2026-09-29T14:30:50]   of the Riemann Hypothesis.
+[2026-09-29T14:30:50] $ python tools/collatz_hunt.py
+[2026-09-29T14:30:50]   
+[2026-09-29T14:30:50]   ====================================================================
+[2026-09-29T14:30:50]   Collatz search over 1..100,000
+[2026-09-29T14:30:50]   ====================================================================
+[2026-09-29T14:30:50]   starts tested     : 100,000
+[2026-09-29T14:30:50]   all reached 1     : yes (within cap 10,000,000)
+[2026-09-29T14:30:50]   median trajectory : 99 steps
+[2026-09-29T14:30:50]   mean trajectory   : 107.5 steps
+[2026-09-29T14:30:50]   max trajectory    : 350 steps
+[2026-09-29T14:30:50]   max peak reached  : 1,570,824,736
+[2026-09-29T14:30:50]   starts exceeding peak 10^6: 7,903
+[2026-09-29T14:30:50]   
+[2026-09-29T14:30:50]   top 10 longest trajectories:
+[2026-09-29T14:30:50]          start     steps            peak
+[2026-09-29T14:30:50]         77,031       350      21,933,016
+[2026-09-29T14:30:50]         52,527       339     106,358,020
+[2026-09-29T14:30:50]         78,791       337     106,358,020
+[2026-09-29T14:30:50]         60,975       334     593,279,152
+[2026-09-29T14:30:50]         91,463       332     593,279,152
+[2026-09-29T14:30:50]         88,059       332       9,402,640
+[2026-09-29T14:30:50]         87,087       332       1,431,736
+[2026-09-29T14:30:50]         63,387       329      41,163,712
+[2026-09-29T14:30:50]         99,721       327     106,358,020
+[2026-09-29T14:30:50]         95,081       327      41,163,712
+[2026-09-29T14:30:50]   
+[2026-09-29T14:30:50]   cycle 1 -> 4 -> 2 -> 1 present: yes
+[2026-09-29T14:30:50]   
+[2026-09-29T14:30:50]   These tools search and verify. A clean run is evidence AGAINST a counterexample up to the bound searched -- it is never a proof of the conjecture itself.
+[2026-09-29T14:30:50] $ python tools/goldbach_twins.py 200000 --sample
+[2026-09-29T14:30:50]   
+[2026-09-29T14:30:50]   ====================================================================
+[2026-09-29T14:30:50]   Goldbach + twin-prime search up to 200,000
+[2026-09-29T14:30:50]   ====================================================================
+[2026-09-29T14:30:50]   
+[2026-09-29T14:30:50]   -- Goldbach (strong) --
+[2026-09-29T14:30:50]   even integers checked : 99,999  (4 .. 200,000)
+[2026-09-29T14:30:50]   counterexamples      : 0
+[2026-09-29T14:30:50]   min representations  : 1
+[2026-09-29T14:30:50]   max representations  : 3,931
+[2026-09-29T14:30:50]   cross-check          : fast count cross-checked against the naive reference for every even n <= 20,000
+[2026-09-29T14:30:50]   thinnest even numbers (fewest prime-pair reps):
+[2026-09-29T14:30:50]              4  1 rep(s)
+[2026-09-29T14:30:50]              6  1 rep(s)
+[2026-09-29T14:30:50]              8  1 rep(s)
+[2026-09-29T14:30:50]             12  1 rep(s)
+[2026-09-29T14:30:50]             10  2 rep(s)
+[2026-09-29T14:30:50]             14  2 rep(s)
+[2026-09-29T14:30:50]             16  2 rep(s)
+[2026-09-29T14:30:50]             18  2 rep(s)
+[2026-09-29T14:30:50]             20  2 rep(s)
+[2026-09-29T14:30:50]             28  2 rep(s)
+[2026-09-29T14:30:50]             32  2 rep(s)
+[2026-09-29T14:30:50]             38  2 rep(s)
+[2026-09-29T14:30:50]             68  2 rep(s)
+[2026-09-29T14:30:50]             22  3 rep(s)
+[2026-09-29T14:30:50]             24  3 rep(s)
+[2026-09-29T14:30:50]   
+[2026-09-29T14:30:50]   -- Twin primes --
+[2026-09-29T14:30:50]   pairs (p, p+2) up to 200,000 : 2,160
+[2026-09-29T14:30:50]   first five          : [3, 5, 11, 17, 29]
+[2026-09-29T14:30:50]   last five           : [199601, 199739, 199751, 199811, 199931]
+[2026-09-29T14:30:50]   largest pair in range: (199,931, 199,933)
+[2026-09-29T14:30:50]   
+[2026-09-29T14:30:50]   These tools search and verify. A clean run is evidence AGAINST a counterexample up to the bound searched -- it is never a proof of the conjecture itself.
+[2026-09-29T14:30:50]   Verified frontier for Goldbach is 4e18, far beyond any local search.
+[2026-09-29T14:30:50] $ python tools/pnp_probe.py
+[2026-09-29T14:30:50]   Single instance: n=40, m=170, density=4.25
+[2026-09-29T14:30:50]   
+[2026-09-29T14:30:50]     n= 40  m= 170  density=4.25  DPLL=  37.002ms  SAT
+[2026-09-29T14:30:50]          certificate check : 0.3664 ms  (       101x faster than search)
+[2026-09-29T14:30:50]   
+[2026-09-29T14:30:50]   Search cost grows exponentially; verification grows linearly.
+[2026-09-29T14:30:50]   That asymmetry is the P vs NP question, demonstrated on small
+[2026-09-29T14:30:50]   instances -- not resolved. See problems/millennium-prize/p-vs-np.md
+[2026-09-29T14:30:50] CHECK: status schema
+[2026-09-29T14:30:50] $ python tools/status_table.py
+[2026-09-29T14:30:50]   ProofZero -- 10 problems, 9 open, 1 solved
+[2026-09-29T14:30:50]   
+[2026-09-29T14:30:50]   PROBLEM                         STATUS  BOUND ACTUALLY CHECKED IN THIS REPO
+[2026-09-29T14:30:50]   --------------------------------------------------------------------------------------------------
+[2026-09-29T14:30:50]   Riemann Hypothesis              open    first 20 non-trivial zeros, located by two-variable Newton
+[2026-09-29T14:30:50]   P vs NP                         open    400 random 3-SAT instances, n in [4,14], seed 1234
+[2026-09-29T14:30:50]   Navier-Stokes Existence and Sm  open    no honest finite check exists
+[2026-09-29T14:30:50]   Yang-Mills Existence and Mass   open    no honest finite check exists
+[2026-09-29T14:30:50]   Birch and Swinnerton-Dyer Conj  open    no honest finite check exists
+[2026-09-29T14:30:50]   Hodge Conjecture                open    no honest finite check exists
+[2026-09-29T14:30:50]   Poincare Conjecture             solved  solved 2002-2003 (proof; not reproduced here)
+[2026-09-29T14:30:50]   Collatz Conjecture              open    200000 starting values, each trajectory searched with a pe
+[2026-09-29T14:30:50]   Goldbach Conjecture             open    every even n <= 20000, representation counts cross-checked
+[2026-09-29T14:30:50]   Twin Prime Conjecture           open    exact twin pair count through 200000
+[2026-09-29T14:30:50]   
+[2026-09-29T14:30:50]   Larger published bounds are CITED in each note, not reproduced here.
+[2026-09-29T14:30:50]   No tool, and none coming: birch-swinnerton-dyer, hodge-conjecture, navier-stokes, yang-mills-mass-gap, poincare (solved, needs no tool).
+[2026-09-29T14:30:50]   None of this resolves any open problem.
+[2026-09-29T14:30:50] CHECK: board honesty (anti-fabrication)
+[2026-09-29T14:30:50] $ node tools/check_greenboard.cjs
+[2026-09-29T14:30:50]   repo root: C:\Users\Thabang\proofzero
+[2026-09-29T14:30:50]   extracted script: 6181 chars
+[2026-09-29T14:30:50]   
+[2026-09-29T14:30:50]   STATS:
+[2026-09-29T14:30:50]     5 run here
+[2026-09-29T14:30:50]     4 cited, not reproduced
+[2026-09-29T14:30:50]     0 no finite check
+[2026-09-29T14:30:50]     1 solved
+[2026-09-29T14:30:50]     10 problems &middot; 4 with no local check
+[2026-09-29T14:30:50]   
+[2026-09-29T14:30:50]   CARDS RENDERED: 10
+[2026-09-29T14:30:50]     TAG MISMATCH Navier-Stokes Existence and Smoothness: got "verified here" want "cited, not reproduced"
+[2026-09-29T14:30:50]     TAG MISMATCH Yang-Mills Existence and Mass Gap: got "verified here" want "cited, not reproduced"
+[2026-09-29T14:30:50]     TAG MISMATCH Birch and Swinnerton-Dyer Conjecture: got "verified here" want "cited, not reproduced"
+[2026-09-29T14:30:50]     TAG MISMATCH Hodge Conjecture: got "verified here" want "cited, not reproduced"
+[2026-09-29T14:30:50]   
+[2026-09-29T14:30:50]   problems=10 cards=10 noLocalCheck=4
+[2026-09-29T14:30:50]   
+[2026-09-29T14:30:50]   4 CHECK(S) FAILED
+[2026-09-29T14:30:50] status snapshot: {"n": 10, "open": 9, "solved": 1, "with_tool": 5, "no_tool": 5, "ids": ["birch-swinnerton-dyer", "collatz", "goldbach", "hodge-conjecture", "navier-stokes", "p-vs-np", "poincare-conjecture", "riemann-hypothesis", "twin-prime", "yang-mills-mass-gap"]}
+[2026-09-29T14:30:50] no drift: status identical to previous run
+[2026-09-29T14:30:50] FAILURES (1):
+[2026-09-29T14:30:50]   - board honesty check failed: the page may be presenting a cited bound as local, dropping a disclosure, or inventing a bound
+[2026-09-29T14:30:50] $ gh issue create --title "[AUDIT-FAILED] ProofZero honesty check" --body-file "C:\Users\Thabang\proofzero\hermes\runs\issue-2026-09-29T143050.md"
+[2026-09-29T14:30:50]   stderr: the 'thabs1234/proofzero' repository has disabled issues
+[2026-09-29T14:30:50] ProofZero Auditor - run end (FAILED)
+[2026-09-29T14:31:07] ==================================================================
+[2026-09-29T14:31:07] ProofZero Auditor - run start (audit only; pushes no bounds)
+[2026-09-29T14:31:07] CHECK: finite mathematical tools
+[2026-09-29T14:31:07]   make unavailable; running the checks directly
+[2026-09-29T14:31:07] $ python tools/check_status.py
+[2026-09-29T14:31:07]   _status.json is consistent with the notes and tools.
+[2026-09-29T14:31:07]     10 problems, 9 open, 1 solved, 5 with a tool
+[2026-09-29T14:31:07]     10 cited-without-reproduction, as intended.
+[2026-09-29T14:31:07]     Timings are informational; only the exact results above are asserted.
+[2026-09-29T14:31:07] $ python tools/rh_zeros.py
+[2026-09-29T14:31:07]   Checking the first 20 non-trivial zeros of zeta(s)
+[2026-09-29T14:31:07]   Solver: 2-D Newton on zeta(s)=0, started OFF the critical line.
+[2026-09-29T14:31:07]   
+[2026-09-29T14:31:07]      #                     Re(s)                     Im(s)       |Re(s)-1/2|
+[2026-09-29T14:31:07]   --------------------------------------------------------------------------
+[2026-09-29T14:31:07]      1                       0.5      14.13472514173469379               0.0
+[2026-09-29T14:31:07]      2                       0.5     21.022039638771554993               0.0
+[2026-09-29T14:31:07]      3                       0.5     25.010857580145688763               0.0
+[2026-09-29T14:31:07]      4                       0.5      30.42487612585951321               0.0
+[2026-09-29T14:31:07]      5                       0.5     32.935061587739189691               0.0
+[2026-09-29T14:31:07]      6                       0.5     37.586178158825671257               0.0
+[2026-09-29T14:31:07]      7                       0.5     40.918719012147495187               0.0
+[2026-09-29T14:31:07]      8                       0.5     43.327073280914999519               0.0
+[2026-09-29T14:31:07]      9                       0.5     48.005150881167159728               0.0
+[2026-09-29T14:31:07]     10                       0.5     49.773832477672302182               0.0
+[2026-09-29T14:31:07]     11                       0.5     52.970321477714460644               0.0
+[2026-09-29T14:31:07]     12                       0.5     56.446247697063394804               0.0
+[2026-09-29T14:31:07]     13                       0.5      59.34704400260235308               0.0
+[2026-09-29T14:31:07]     14                       0.5     60.831778524609809844               0.0
+[2026-09-29T14:31:07]     15                       0.5     65.112544048081606661               0.0
+[2026-09-29T14:31:07]     16                       0.5     67.079810529494173714               0.0
+[2026-09-29T14:31:07]     17                       0.5     69.546401711173979253               0.0
+[2026-09-29T14:31:07]     18                       0.5     72.067157674481907583               0.0
+[2026-09-29T14:31:07]     19                       0.5     75.704690699083933168               0.0
+[2026-09-29T14:31:07]     20                       0.5     77.144840068874805373               0.0
+[2026-09-29T14:31:07]   --------------------------------------------------------------------------
+[2026-09-29T14:31:07]   worst deviation: 0.0  (zero #1)
+[2026-09-29T14:31:07]   tolerance at dps=25: 1.0e-20
+[2026-09-29T14:31:07]   NOTE: deviation is exactly 0 at this precision. The real parts
+[2026-09-29T14:31:07]         converged onto 0.5 to within working precision, so the
+[2026-09-29T14:31:07]         residual rounds to zero. Raise dps to expose it. Read
+[2026-09-29T14:31:07]         this as the limit of the arithmetic, not as extra
+[2026-09-29T14:31:07]         confirmation of the hypothesis.
+[2026-09-29T14:31:07]   
+[2026-09-29T14:31:07]   Scope: the first 20 non-trivial zeros only. Zeros beyond index
+[2026-09-29T14:31:07]   20 are unconstrained by this run. Finite verification, not a proof
+[2026-09-29T14:31:07]   of the Riemann Hypothesis.
+[2026-09-29T14:31:07] $ python tools/collatz_hunt.py
+[2026-09-29T14:31:07]   
+[2026-09-29T14:31:07]   ====================================================================
+[2026-09-29T14:31:07]   Collatz search over 1..100,000
+[2026-09-29T14:31:07]   ====================================================================
+[2026-09-29T14:31:07]   starts tested     : 100,000
+[2026-09-29T14:31:07]   all reached 1     : yes (within cap 10,000,000)
+[2026-09-29T14:31:07]   median trajectory : 99 steps
+[2026-09-29T14:31:07]   mean trajectory   : 107.5 steps
+[2026-09-29T14:31:07]   max trajectory    : 350 steps
+[2026-09-29T14:31:07]   max peak reached  : 1,570,824,736
+[2026-09-29T14:31:07]   starts exceeding peak 10^6: 7,903
+[2026-09-29T14:31:07]   
+[2026-09-29T14:31:07]   top 10 longest trajectories:
+[2026-09-29T14:31:07]          start     steps            peak
+[2026-09-29T14:31:07]         77,031       350      21,933,016
+[2026-09-29T14:31:07]         52,527       339     106,358,020
+[2026-09-29T14:31:07]         78,791       337     106,358,020
+[2026-09-29T14:31:07]         60,975       334     593,279,152
+[2026-09-29T14:31:07]         91,463       332     593,279,152
+[2026-09-29T14:31:07]         88,059       332       9,402,640
+[2026-09-29T14:31:07]         87,087       332       1,431,736
+[2026-09-29T14:31:07]         63,387       329      41,163,712
+[2026-09-29T14:31:07]         99,721       327     106,358,020
+[2026-09-29T14:31:07]         95,081       327      41,163,712
+[2026-09-29T14:31:07]   
+[2026-09-29T14:31:07]   cycle 1 -> 4 -> 2 -> 1 present: yes
+[2026-09-29T14:31:07]   
+[2026-09-29T14:31:07]   These tools search and verify. A clean run is evidence AGAINST a counterexample up to the bound searched -- it is never a proof of the conjecture itself.
+[2026-09-29T14:31:07] $ python tools/goldbach_twins.py 200000 --sample
+[2026-09-29T14:31:07]   
+[2026-09-29T14:31:07]   ====================================================================
+[2026-09-29T14:31:07]   Goldbach + twin-prime search up to 200,000
+[2026-09-29T14:31:07]   ====================================================================
+[2026-09-29T14:31:07]   
+[2026-09-29T14:31:07]   -- Goldbach (strong) --
+[2026-09-29T14:31:07]   even integers checked : 99,999  (4 .. 200,000)
+[2026-09-29T14:31:07]   counterexamples      : 0
+[2026-09-29T14:31:07]   min representations  : 1
+[2026-09-29T14:31:07]   max representations  : 3,931
+[2026-09-29T14:31:07]   cross-check          : fast count cross-checked against the naive reference for every even n <= 20,000
+[2026-09-29T14:31:07]   thinnest even numbers (fewest prime-pair reps):
+[2026-09-29T14:31:07]              4  1 rep(s)
+[2026-09-29T14:31:07]              6  1 rep(s)
+[2026-09-29T14:31:07]              8  1 rep(s)
+[2026-09-29T14:31:07]             12  1 rep(s)
+[2026-09-29T14:31:07]             10  2 rep(s)
+[2026-09-29T14:31:07]             14  2 rep(s)
+[2026-09-29T14:31:07]             16  2 rep(s)
+[2026-09-29T14:31:07]             18  2 rep(s)
+[2026-09-29T14:31:07]             20  2 rep(s)
+[2026-09-29T14:31:07]             28  2 rep(s)
+[2026-09-29T14:31:07]             32  2 rep(s)
+[2026-09-29T14:31:07]             38  2 rep(s)
+[2026-09-29T14:31:07]             68  2 rep(s)
+[2026-09-29T14:31:07]             22  3 rep(s)
+[2026-09-29T14:31:07]             24  3 rep(s)
+[2026-09-29T14:31:07]   
+[2026-09-29T14:31:07]   -- Twin primes --
+[2026-09-29T14:31:07]   pairs (p, p+2) up to 200,000 : 2,160
+[2026-09-29T14:31:07]   first five          : [3, 5, 11, 17, 29]
+[2026-09-29T14:31:07]   last five           : [199601, 199739, 199751, 199811, 199931]
+[2026-09-29T14:31:07]   largest pair in range: (199,931, 199,933)
+[2026-09-29T14:31:07]   
+[2026-09-29T14:31:07]   These tools search and verify. A clean run is evidence AGAINST a counterexample up to the bound searched -- it is never a proof of the conjecture itself.
+[2026-09-29T14:31:07]   Verified frontier for Goldbach is 4e18, far beyond any local search.
+[2026-09-29T14:31:07] $ python tools/pnp_probe.py
+[2026-09-29T14:31:07]   Single instance: n=40, m=170, density=4.25
+[2026-09-29T14:31:07]   
+[2026-09-29T14:31:07]     n= 40  m= 170  density=4.25  DPLL=  16.785ms  SAT
+[2026-09-29T14:31:07]          certificate check : 0.2479 ms  (        68x faster than search)
+[2026-09-29T14:31:07]   
+[2026-09-29T14:31:07]   Search cost grows exponentially; verification grows linearly.
+[2026-09-29T14:31:07]   That asymmetry is the P vs NP question, demonstrated on small
+[2026-09-29T14:31:07]   instances -- not resolved. See problems/millennium-prize/p-vs-np.md
+[2026-09-29T14:31:07] CHECK: status schema
+[2026-09-29T14:31:07] $ python tools/status_table.py
+[2026-09-29T14:31:07]   ProofZero -- 10 problems, 9 open, 1 solved
+[2026-09-29T14:31:07]   
+[2026-09-29T14:31:07]   PROBLEM                         STATUS  BOUND ACTUALLY CHECKED IN THIS REPO
+[2026-09-29T14:31:07]   --------------------------------------------------------------------------------------------------
+[2026-09-29T14:31:07]   Riemann Hypothesis              open    first 20 non-trivial zeros, located by two-variable Newton
+[2026-09-29T14:31:07]   P vs NP                         open    400 random 3-SAT instances, n in [4,14], seed 1234
+[2026-09-29T14:31:07]   Navier-Stokes Existence and Sm  open    no honest finite check exists
+[2026-09-29T14:31:07]   Yang-Mills Existence and Mass   open    no honest finite check exists
+[2026-09-29T14:31:07]   Birch and Swinnerton-Dyer Conj  open    no honest finite check exists
+[2026-09-29T14:31:07]   Hodge Conjecture                open    no honest finite check exists
+[2026-09-29T14:31:07]   Poincare Conjecture             solved  solved 2002-2003 (proof; not reproduced here)
+[2026-09-29T14:31:07]   Collatz Conjecture              open    200000 starting values, each trajectory searched with a pe
+[2026-09-29T14:31:07]   Goldbach Conjecture             open    every even n <= 20000, representation counts cross-checked
+[2026-09-29T14:31:07]   Twin Prime Conjecture           open    exact twin pair count through 200000
+[2026-09-29T14:31:07]   
+[2026-09-29T14:31:07]   Larger published bounds are CITED in each note, not reproduced here.
+[2026-09-29T14:31:07]   No tool, and none coming: birch-swinnerton-dyer, hodge-conjecture, navier-stokes, yang-mills-mass-gap, poincare (solved, needs no tool).
+[2026-09-29T14:31:07]   None of this resolves any open problem.
+[2026-09-29T14:31:07] CHECK: board honesty (anti-fabrication)
+[2026-09-29T14:31:07] $ node tools/check_greenboard.cjs
+[2026-09-29T14:31:07]   repo root: C:\Users\Thabang\proofzero
+[2026-09-29T14:31:07]   extracted script: 6189 chars
+[2026-09-29T14:31:07]   
+[2026-09-29T14:31:07]   STATS:
+[2026-09-29T14:31:07]     5 run here
+[2026-09-29T14:31:07]     4 cited, not reproduced
+[2026-09-29T14:31:07]     0 no finite check
+[2026-09-29T14:31:07]     1 solved
+[2026-09-29T14:31:07]     10 problems &middot; 4 with no local check
+[2026-09-29T14:31:07]   
+[2026-09-29T14:31:07]   CARDS RENDERED: 10
+[2026-09-29T14:31:07]   
+[2026-09-29T14:31:07]   problems=10 cards=10 noLocalCheck=4
+[2026-09-29T14:31:07]   
+[2026-09-29T14:31:07]   ALL RENDER CHECKS PASSED
+[2026-09-29T14:31:07] status snapshot: {"n": 10, "open": 9, "solved": 1, "with_tool": 5, "no_tool": 5, "ids": ["birch-swinnerton-dyer", "collatz", "goldbach", "hodge-conjecture", "navier-stokes", "p-vs-np", "poincare-conjecture", "riemann-hypothesis", "twin-prime", "yang-mills-mass-gap"]}
+[2026-09-29T14:31:07] no drift: status identical to previous run
+[2026-09-29T14:31:07] all checks passed
+[2026-09-29T14:31:07] ProofZero Auditor - run end
+[2026-09-29T14:31:23] ==================================================================
+[2026-09-29T14:31:23] ProofZero Auditor - run start (audit only; pushes no bounds)
+[2026-09-29T14:31:23] CHECK: finite mathematical tools
+[2026-09-29T14:31:23]   make unavailable; running the checks directly
+[2026-09-29T14:31:23] $ python tools/check_status.py
+[2026-09-29T14:31:23]   _status.json is consistent with the notes and tools.
+[2026-09-29T14:31:23]     10 problems, 9 open, 1 solved, 5 with a tool
+[2026-09-29T14:31:23]     10 cited-without-reproduction, as intended.
+[2026-09-29T14:31:23]     Timings are informational; only the exact results above are asserted.
+[2026-09-29T14:31:23] $ python tools/rh_zeros.py
+[2026-09-29T14:31:23]   Checking the first 20 non-trivial zeros of zeta(s)
+[2026-09-29T14:31:23]   Solver: 2-D Newton on zeta(s)=0, started OFF the critical line.
+[2026-09-29T14:31:23]   
+[2026-09-29T14:31:23]      #                     Re(s)                     Im(s)       |Re(s)-1/2|
+[2026-09-29T14:31:23]   --------------------------------------------------------------------------
+[2026-09-29T14:31:23]      1                       0.5      14.13472514173469379               0.0
+[2026-09-29T14:31:23]      2                       0.5     21.022039638771554993               0.0
+[2026-09-29T14:31:23]      3                       0.5     25.010857580145688763               0.0
+[2026-09-29T14:31:23]      4                       0.5      30.42487612585951321               0.0
+[2026-09-29T14:31:23]      5                       0.5     32.935061587739189691               0.0
+[2026-09-29T14:31:23]      6                       0.5     37.586178158825671257               0.0
+[2026-09-29T14:31:23]      7                       0.5     40.918719012147495187               0.0
+[2026-09-29T14:31:23]      8                       0.5     43.327073280914999519               0.0
+[2026-09-29T14:31:23]      9                       0.5     48.005150881167159728               0.0
+[2026-09-29T14:31:23]     10                       0.5     49.773832477672302182               0.0
+[2026-09-29T14:31:23]     11                       0.5     52.970321477714460644               0.0
+[2026-09-29T14:31:23]     12                       0.5     56.446247697063394804               0.0
+[2026-09-29T14:31:23]     13                       0.5      59.34704400260235308               0.0
+[2026-09-29T14:31:23]     14                       0.5     60.831778524609809844               0.0
+[2026-09-29T14:31:23]     15                       0.5     65.112544048081606661               0.0
+[2026-09-29T14:31:23]     16                       0.5     67.079810529494173714               0.0
+[2026-09-29T14:31:23]     17                       0.5     69.546401711173979253               0.0
+[2026-09-29T14:31:23]     18                       0.5     72.067157674481907583               0.0
+[2026-09-29T14:31:23]     19                       0.5     75.704690699083933168               0.0
+[2026-09-29T14:31:23]     20                       0.5     77.144840068874805373               0.0
+[2026-09-29T14:31:23]   --------------------------------------------------------------------------
+[2026-09-29T14:31:23]   worst deviation: 0.0  (zero #1)
+[2026-09-29T14:31:23]   tolerance at dps=25: 1.0e-20
+[2026-09-29T14:31:23]   NOTE: deviation is exactly 0 at this precision. The real parts
+[2026-09-29T14:31:23]         converged onto 0.5 to within working precision, so the
+[2026-09-29T14:31:23]         residual rounds to zero. Raise dps to expose it. Read
+[2026-09-29T14:31:23]         this as the limit of the arithmetic, not as extra
+[2026-09-29T14:31:23]         confirmation of the hypothesis.
+[2026-09-29T14:31:23]   
+[2026-09-29T14:31:23]   Scope: the first 20 non-trivial zeros only. Zeros beyond index
+[2026-09-29T14:31:23]   20 are unconstrained by this run. Finite verification, not a proof
+[2026-09-29T14:31:23]   of the Riemann Hypothesis.
+[2026-09-29T14:31:23] $ python tools/collatz_hunt.py
+[2026-09-29T14:31:23]   
+[2026-09-29T14:31:23]   ====================================================================
+[2026-09-29T14:31:23]   Collatz search over 1..100,000
+[2026-09-29T14:31:23]   ====================================================================
+[2026-09-29T14:31:23]   starts tested     : 100,000
+[2026-09-29T14:31:23]   all reached 1     : yes (within cap 10,000,000)
+[2026-09-29T14:31:23]   median trajectory : 99 steps
+[2026-09-29T14:31:23]   mean trajectory   : 107.5 steps
+[2026-09-29T14:31:23]   max trajectory    : 350 steps
+[2026-09-29T14:31:23]   max peak reached  : 1,570,824,736
+[2026-09-29T14:31:23]   starts exceeding peak 10^6: 7,903
+[2026-09-29T14:31:23]   
+[2026-09-29T14:31:23]   top 10 longest trajectories:
+[2026-09-29T14:31:23]          start     steps            peak
+[2026-09-29T14:31:23]         77,031       350      21,933,016
+[2026-09-29T14:31:23]         52,527       339     106,358,020
+[2026-09-29T14:31:23]         78,791       337     106,358,020
+[2026-09-29T14:31:23]         60,975       334     593,279,152
+[2026-09-29T14:31:23]         91,463       332     593,279,152
+[2026-09-29T14:31:23]         88,059       332       9,402,640
+[2026-09-29T14:31:23]         87,087       332       1,431,736
+[2026-09-29T14:31:23]         63,387       329      41,163,712
+[2026-09-29T14:31:23]         99,721       327     106,358,020
+[2026-09-29T14:31:23]         95,081       327      41,163,712
+[2026-09-29T14:31:23]   
+[2026-09-29T14:31:23]   cycle 1 -> 4 -> 2 -> 1 present: yes
+[2026-09-29T14:31:23]   
+[2026-09-29T14:31:23]   These tools search and verify. A clean run is evidence AGAINST a counterexample up to the bound searched -- it is never a proof of the conjecture itself.
+[2026-09-29T14:31:23] $ python tools/goldbach_twins.py 200000 --sample
+[2026-09-29T14:31:23]   
+[2026-09-29T14:31:23]   ====================================================================
+[2026-09-29T14:31:23]   Goldbach + twin-prime search up to 200,000
+[2026-09-29T14:31:23]   ====================================================================
+[2026-09-29T14:31:23]   
+[2026-09-29T14:31:23]   -- Goldbach (strong) --
+[2026-09-29T14:31:23]   even integers checked : 99,999  (4 .. 200,000)
+[2026-09-29T14:31:23]   counterexamples      : 0
+[2026-09-29T14:31:23]   min representations  : 1
+[2026-09-29T14:31:23]   max representations  : 3,931
+[2026-09-29T14:31:23]   cross-check          : fast count cross-checked against the naive reference for every even n <= 20,000
+[2026-09-29T14:31:23]   thinnest even numbers (fewest prime-pair reps):
+[2026-09-29T14:31:23]              4  1 rep(s)
+[2026-09-29T14:31:23]              6  1 rep(s)
+[2026-09-29T14:31:23]              8  1 rep(s)
+[2026-09-29T14:31:23]             12  1 rep(s)
+[2026-09-29T14:31:23]             10  2 rep(s)
+[2026-09-29T14:31:23]             14  2 rep(s)
+[2026-09-29T14:31:23]             16  2 rep(s)
+[2026-09-29T14:31:23]             18  2 rep(s)
+[2026-09-29T14:31:23]             20  2 rep(s)
+[2026-09-29T14:31:23]             28  2 rep(s)
+[2026-09-29T14:31:23]             32  2 rep(s)
+[2026-09-29T14:31:23]             38  2 rep(s)
+[2026-09-29T14:31:23]             68  2 rep(s)
+[2026-09-29T14:31:23]             22  3 rep(s)
+[2026-09-29T14:31:23]             24  3 rep(s)
+[2026-09-29T14:31:23]   
+[2026-09-29T14:31:23]   -- Twin primes --
+[2026-09-29T14:31:23]   pairs (p, p+2) up to 200,000 : 2,160
+[2026-09-29T14:31:23]   first five          : [3, 5, 11, 17, 29]
+[2026-09-29T14:31:23]   last five           : [199601, 199739, 199751, 199811, 199931]
+[2026-09-29T14:31:23]   largest pair in range: (199,931, 199,933)
+[2026-09-29T14:31:23]   
+[2026-09-29T14:31:23]   These tools search and verify. A clean run is evidence AGAINST a counterexample up to the bound searched -- it is never a proof of the conjecture itself.
+[2026-09-29T14:31:23]   Verified frontier for Goldbach is 4e18, far beyond any local search.
+[2026-09-29T14:31:23] $ python tools/pnp_probe.py
+[2026-09-29T14:31:23]   Single instance: n=40, m=170, density=4.25
+[2026-09-29T14:31:23]   
+[2026-09-29T14:31:23]     n= 40  m= 170  density=4.25  DPLL=  16.119ms  SAT
+[2026-09-29T14:31:23]          certificate check : 0.1259 ms  (       128x faster than search)
+[2026-09-29T14:31:23]   
+[2026-09-29T14:31:23]   Search cost grows exponentially; verification grows linearly.
+[2026-09-29T14:31:23]   That asymmetry is the P vs NP question, demonstrated on small
+[2026-09-29T14:31:23]   instances -- not resolved. See problems/millennium-prize/p-vs-np.md
+[2026-09-29T14:31:23] CHECK: status schema
+[2026-09-29T14:31:23] $ python tools/status_table.py
+[2026-09-29T14:31:23]   ProofZero -- 10 problems, 9 open, 1 solved
+[2026-09-29T14:31:23]   
+[2026-09-29T14:31:23]   PROBLEM                         STATUS  BOUND ACTUALLY CHECKED IN THIS REPO
+[2026-09-29T14:31:23]   --------------------------------------------------------------------------------------------------
+[2026-09-29T14:31:23]   Riemann Hypothesis              open    first 20 non-trivial zeros, located by two-variable Newton
+[2026-09-29T14:31:23]   P vs NP                         open    400 random 3-SAT instances, n in [4,14], seed 1234
+[2026-09-29T14:31:23]   Navier-Stokes Existence and Sm  open    no honest finite check exists
+[2026-09-29T14:31:23]   Yang-Mills Existence and Mass   open    no honest finite check exists
+[2026-09-29T14:31:23]   Birch and Swinnerton-Dyer Conj  open    no honest finite check exists
+[2026-09-29T14:31:23]   Hodge Conjecture                open    no honest finite check exists
+[2026-09-29T14:31:23]   Poincare Conjecture             solved  solved 2002-2003 (proof; not reproduced here)
+[2026-09-29T14:31:23]   Collatz Conjecture              open    200000 starting values, each trajectory searched with a pe
+[2026-09-29T14:31:23]   Goldbach Conjecture             open    every even n <= 20000, representation counts cross-checked
+[2026-09-29T14:31:23]   Twin Prime Conjecture           open    exact twin pair count through 200000
+[2026-09-29T14:31:23]   
+[2026-09-29T14:31:23]   Larger published bounds are CITED in each note, not reproduced here.
+[2026-09-29T14:31:23]   No tool, and none coming: birch-swinnerton-dyer, hodge-conjecture, navier-stokes, yang-mills-mass-gap, poincare (solved, needs no tool).
+[2026-09-29T14:31:23]   None of this resolves any open problem.
+[2026-09-29T14:31:23] CHECK: board honesty (anti-fabrication)
+[2026-09-29T14:31:23] $ node tools/check_greenboard.cjs
+[2026-09-29T14:31:23]   repo root: C:\Users\Thabang\proofzero
+[2026-09-29T14:31:23]   extracted script: 6024 chars
+[2026-09-29T14:31:23]   
+[2026-09-29T14:31:23]   STATS:
+[2026-09-29T14:31:23]     5 run here
+[2026-09-29T14:31:23]     4 cited, not reproduced
+[2026-09-29T14:31:23]     0 no finite check
+[2026-09-29T14:31:23]     1 solved
+[2026-09-29T14:31:23]     10 problems &middot; 4 with no local check
+[2026-09-29T14:31:23]   
+[2026-09-29T14:31:23]   CARDS RENDERED: 10
+[2026-09-29T14:31:23]   
+[2026-09-29T14:31:23]   problems=10 cards=10 noLocalCheck=4
+[2026-09-29T14:31:23]   
+[2026-09-29T14:31:23]   ALL RENDER CHECKS PASSED
+[2026-09-29T14:31:23] status snapshot: {"n": 10, "open": 9, "solved": 1, "with_tool": 5, "no_tool": 5, "ids": ["birch-swinnerton-dyer", "collatz", "goldbach", "hodge-conjecture", "navier-stokes", "p-vs-np", "poincare-conjecture", "riemann-hypothesis", "twin-prime", "yang-mills-mass-gap"]}
+[2026-09-29T14:31:23] no drift: status identical to previous run
+[2026-09-29T14:31:23] all checks passed
+[2026-09-29T14:31:23] ProofZero Auditor - run end
+[2026-09-29T14:34:08] ==================================================================
+[2026-09-29T14:34:08] ProofZero Auditor - run start (audit only; pushes no bounds)
+[2026-09-29T14:34:08] CHECK: finite mathematical tools
+[2026-09-29T14:34:08]   make unavailable; running the checks directly
+[2026-09-29T14:34:08] $ python tools/check_status.py
+[2026-09-29T14:34:08]   _status.json is consistent with the notes and tools.
+[2026-09-29T14:34:08]     10 problems, 9 open, 1 solved, 5 with a tool
+[2026-09-29T14:34:08]     10 cited-without-reproduction, as intended.
+[2026-09-29T14:34:08]     Timings are informational; only the exact results above are asserted.
+[2026-09-29T14:34:08] $ python tools/rh_zeros.py
+[2026-09-29T14:34:08]   Checking the first 20 non-trivial zeros of zeta(s)
+[2026-09-29T14:34:08]   Solver: 2-D Newton on zeta(s)=0, started OFF the critical line.
+[2026-09-29T14:34:08]   
+[2026-09-29T14:34:08]      #                     Re(s)                     Im(s)       |Re(s)-1/2|
+[2026-09-29T14:34:08]   --------------------------------------------------------------------------
+[2026-09-29T14:34:08]      1                       0.5      14.13472514173469379               0.0
+[2026-09-29T14:34:08]      2                       0.5     21.022039638771554993               0.0
+[2026-09-29T14:34:08]      3                       0.5     25.010857580145688763               0.0
+[2026-09-29T14:34:08]      4                       0.5      30.42487612585951321               0.0
+[2026-09-29T14:34:08]      5                       0.5     32.935061587739189691               0.0
+[2026-09-29T14:34:08]      6                       0.5     37.586178158825671257               0.0
+[2026-09-29T14:34:08]      7                       0.5     40.918719012147495187               0.0
+[2026-09-29T14:34:08]      8                       0.5     43.327073280914999519               0.0
+[2026-09-29T14:34:08]      9                       0.5     48.005150881167159728               0.0
+[2026-09-29T14:34:08]     10                       0.5     49.773832477672302182               0.0
+[2026-09-29T14:34:08]     11                       0.5     52.970321477714460644               0.0
+[2026-09-29T14:34:08]     12                       0.5     56.446247697063394804               0.0
+[2026-09-29T14:34:08]     13                       0.5      59.34704400260235308               0.0
+[2026-09-29T14:34:08]     14                       0.5     60.831778524609809844               0.0
+[2026-09-29T14:34:08]     15                       0.5     65.112544048081606661               0.0
+[2026-09-29T14:34:08]     16                       0.5     67.079810529494173714               0.0
+[2026-09-29T14:34:08]     17                       0.5     69.546401711173979253               0.0
+[2026-09-29T14:34:08]     18                       0.5     72.067157674481907583               0.0
+[2026-09-29T14:34:08]     19                       0.5     75.704690699083933168               0.0
+[2026-09-29T14:34:08]     20                       0.5     77.144840068874805373               0.0
+[2026-09-29T14:34:08]   --------------------------------------------------------------------------
+[2026-09-29T14:34:08]   worst deviation: 0.0  (zero #1)
+[2026-09-29T14:34:08]   tolerance at dps=25: 1.0e-20
+[2026-09-29T14:34:08]   NOTE: deviation is exactly 0 at this precision. The real parts
+[2026-09-29T14:34:08]         converged onto 0.5 to within working precision, so the
+[2026-09-29T14:34:08]         residual rounds to zero. Raise dps to expose it. Read
+[2026-09-29T14:34:08]         this as the limit of the arithmetic, not as extra
+[2026-09-29T14:34:08]         confirmation of the hypothesis.
+[2026-09-29T14:34:08]   
+[2026-09-29T14:34:08]   Scope: the first 20 non-trivial zeros only. Zeros beyond index
+[2026-09-29T14:34:08]   20 are unconstrained by this run. Finite verification, not a proof
+[2026-09-29T14:34:08]   of the Riemann Hypothesis.
+[2026-09-29T14:34:08] $ python tools/collatz_hunt.py
+[2026-09-29T14:34:08]   
+[2026-09-29T14:34:08]   ====================================================================
+[2026-09-29T14:34:08]   Collatz search over 1..100,000
+[2026-09-29T14:34:08]   ====================================================================
+[2026-09-29T14:34:08]   starts tested     : 100,000
+[2026-09-29T14:34:08]   all reached 1     : yes (within cap 10,000,000)
+[2026-09-29T14:34:08]   median trajectory : 99 steps
+[2026-09-29T14:34:08]   mean trajectory   : 107.5 steps
+[2026-09-29T14:34:08]   max trajectory    : 350 steps
+[2026-09-29T14:34:08]   max peak reached  : 1,570,824,736
+[2026-09-29T14:34:08]   starts exceeding peak 10^6: 7,903
+[2026-09-29T14:34:08]   
+[2026-09-29T14:34:08]   top 10 longest trajectories:
+[2026-09-29T14:34:08]          start     steps            peak
+[2026-09-29T14:34:08]         77,031       350      21,933,016
+[2026-09-29T14:34:08]         52,527       339     106,358,020
+[2026-09-29T14:34:08]         78,791       337     106,358,020
+[2026-09-29T14:34:08]         60,975       334     593,279,152
+[2026-09-29T14:34:08]         91,463       332     593,279,152
+[2026-09-29T14:34:08]         88,059       332       9,402,640
+[2026-09-29T14:34:08]         87,087       332       1,431,736
+[2026-09-29T14:34:08]         63,387       329      41,163,712
+[2026-09-29T14:34:08]         99,721       327     106,358,020
+[2026-09-29T14:34:08]         95,081       327      41,163,712
+[2026-09-29T14:34:08]   
+[2026-09-29T14:34:08]   cycle 1 -> 4 -> 2 -> 1 present: yes
+[2026-09-29T14:34:08]   
+[2026-09-29T14:34:08]   These tools search and verify. A clean run is evidence AGAINST a counterexample up to the bound searched -- it is never a proof of the conjecture itself.
+[2026-09-29T14:34:08] $ python tools/goldbach_twins.py 200000 --sample
+[2026-09-29T14:34:08]   
+[2026-09-29T14:34:08]   ====================================================================
+[2026-09-29T14:34:08]   Goldbach + twin-prime search up to 200,000
+[2026-09-29T14:34:08]   ====================================================================
+[2026-09-29T14:34:08]   
+[2026-09-29T14:34:08]   -- Goldbach (strong) --
+[2026-09-29T14:34:08]   even integers checked : 99,999  (4 .. 200,000)
+[2026-09-29T14:34:08]   counterexamples      : 0
+[2026-09-29T14:34:08]   min representations  : 1
+[2026-09-29T14:34:08]   max representations  : 3,931
+[2026-09-29T14:34:08]   cross-check          : fast count cross-checked against the naive reference for every even n <= 20,000
+[2026-09-29T14:34:08]   thinnest even numbers (fewest prime-pair reps):
+[2026-09-29T14:34:08]              4  1 rep(s)
+[2026-09-29T14:34:08]              6  1 rep(s)
+[2026-09-29T14:34:08]              8  1 rep(s)
+[2026-09-29T14:34:08]             12  1 rep(s)
+[2026-09-29T14:34:08]             10  2 rep(s)
+[2026-09-29T14:34:08]             14  2 rep(s)
+[2026-09-29T14:34:08]             16  2 rep(s)
+[2026-09-29T14:34:08]             18  2 rep(s)
+[2026-09-29T14:34:08]             20  2 rep(s)
+[2026-09-29T14:34:08]             28  2 rep(s)
+[2026-09-29T14:34:08]             32  2 rep(s)
+[2026-09-29T14:34:08]             38  2 rep(s)
+[2026-09-29T14:34:08]             68  2 rep(s)
+[2026-09-29T14:34:08]             22  3 rep(s)
+[2026-09-29T14:34:08]             24  3 rep(s)
+[2026-09-29T14:34:08]   
+[2026-09-29T14:34:08]   -- Twin primes --
+[2026-09-29T14:34:08]   pairs (p, p+2) up to 200,000 : 2,160
+[2026-09-29T14:34:08]   first five          : [3, 5, 11, 17, 29]
+[2026-09-29T14:34:08]   last five           : [199601, 199739, 199751, 199811, 199931]
+[2026-09-29T14:34:08]   largest pair in range: (199,931, 199,933)
+[2026-09-29T14:34:08]   
+[2026-09-29T14:34:08]   These tools search and verify. A clean run is evidence AGAINST a counterexample up to the bound searched -- it is never a proof of the conjecture itself.
+[2026-09-29T14:34:08]   Verified frontier for Goldbach is 4e18, far beyond any local search.
+[2026-09-29T14:34:08] $ python tools/pnp_probe.py
+[2026-09-29T14:34:08]   Single instance: n=40, m=170, density=4.25
+[2026-09-29T14:34:08]   
+[2026-09-29T14:34:08]     n= 40  m= 170  density=4.25  DPLL=  35.131ms  SAT
+[2026-09-29T14:34:08]          certificate check : 0.3602 ms  (        98x faster than search)
+[2026-09-29T14:34:08]   
+[2026-09-29T14:34:08]   Search cost grows exponentially; verification grows linearly.
+[2026-09-29T14:34:08]   That asymmetry is the P vs NP question, demonstrated on small
+[2026-09-29T14:34:08]   instances -- not resolved. See problems/millennium-prize/p-vs-np.md
+[2026-09-29T14:34:08] CHECK: status schema
+[2026-09-29T14:34:08] $ python tools/status_table.py
+[2026-09-29T14:34:08]   ProofZero -- 10 problems, 9 open, 1 solved
+[2026-09-29T14:34:08]   
+[2026-09-29T14:34:08]   PROBLEM                         STATUS  BOUND ACTUALLY CHECKED IN THIS REPO
+[2026-09-29T14:34:08]   --------------------------------------------------------------------------------------------------
+[2026-09-29T14:34:08]   Riemann Hypothesis              open    first 20 non-trivial zeros, located by two-variable Newton
+[2026-09-29T14:34:08]   P vs NP                         open    400 random 3-SAT instances, n in [4,14], seed 1234
+[2026-09-29T14:34:08]   Navier-Stokes Existence and Sm  open    no honest finite check exists
+[2026-09-29T14:34:08]   Yang-Mills Existence and Mass   open    no honest finite check exists
+[2026-09-29T14:34:08]   Birch and Swinnerton-Dyer Conj  open    no honest finite check exists
+[2026-09-29T14:34:08]   Hodge Conjecture                open    no honest finite check exists
+[2026-09-29T14:34:08]   Poincare Conjecture             solved  solved 2002-2003 (proof; not reproduced here)
+[2026-09-29T14:34:08]   Collatz Conjecture              open    200000 starting values, each trajectory searched with a pe
+[2026-09-29T14:34:08]   Goldbach Conjecture             open    every even n <= 20000, representation counts cross-checked
+[2026-09-29T14:34:08]   Twin Prime Conjecture           open    exact twin pair count through 200000
+[2026-09-29T14:34:08]   
+[2026-09-29T14:34:08]   Larger published bounds are CITED in each note, not reproduced here.
+[2026-09-29T14:34:08]   No tool, and none coming: birch-swinnerton-dyer, hodge-conjecture, navier-stokes, yang-mills-mass-gap, poincare (solved, needs no tool).
+[2026-09-29T14:34:08]   None of this resolves any open problem.
+[2026-09-29T14:34:08] CHECK: board honesty (anti-fabrication)
+[2026-09-29T14:34:08] $ node tools/check_greenboard.cjs
+[2026-09-29T14:34:08]   repo root: C:\Users\Thabang\proofzero
+[2026-09-29T14:34:08]   extracted script: 6024 chars
+[2026-09-29T14:34:08]   
+[2026-09-29T14:34:08]   STATS:
+[2026-09-29T14:34:08]     5 run here
+[2026-09-29T14:34:08]     4 cited, not reproduced
+[2026-09-29T14:34:08]     0 no finite check
+[2026-09-29T14:34:08]     1 solved
+[2026-09-29T14:34:08]     10 problems &middot; 4 with no local check
+[2026-09-29T14:34:08]   
+[2026-09-29T14:34:08]   CARDS RENDERED: 10
+[2026-09-29T14:34:08]   
+[2026-09-29T14:34:08]   problems=10 cards=10 noLocalCheck=4
+[2026-09-29T14:34:08]   
+[2026-09-29T14:34:08]   ALL RENDER CHECKS PASSED
+[2026-09-29T14:34:08] status snapshot: {"n": 10, "open": 9, "solved": 1, "with_tool": 5, "no_tool": 5, "ids": ["birch-swinnerton-dyer", "collatz", "goldbach", "hodge-conjecture", "navier-stokes", "p-vs-np", "poincare-conjecture", "riemann-hypothesis", "twin-prime", "yang-mills-mass-gap"]}
+[2026-09-29T14:34:08] no drift: status identical to previous run
+[2026-09-29T14:34:08] all checks passed
+[2026-09-29T14:34:08] ProofZero Auditor - run end
+[2026-09-29T14:34:39] ==================================================================
+[2026-09-29T14:34:39] ProofZero Auditor - run start (audit only; pushes no bounds)
+[2026-09-29T14:34:39] CHECK: finite mathematical tools
+[2026-09-29T14:34:39]   make unavailable; running the checks directly
+[2026-09-29T14:34:39] $ python tools/check_status.py
+[2026-09-29T14:34:39]   _status.json is consistent with the notes and tools.
+[2026-09-29T14:34:39]     10 problems, 9 open, 1 solved, 5 with a tool
+[2026-09-29T14:34:39]     10 cited-without-reproduction, as intended.
+[2026-09-29T14:34:39]     Timings are informational; only the exact results above are asserted.
+[2026-09-29T14:34:39] $ python tools/rh_zeros.py
+[2026-09-29T14:34:39]   Checking the first 20 non-trivial zeros of zeta(s)
+[2026-09-29T14:34:39]   Solver: 2-D Newton on zeta(s)=0, started OFF the critical line.
+[2026-09-29T14:34:39]   
+[2026-09-29T14:34:39]      #                     Re(s)                     Im(s)       |Re(s)-1/2|
+[2026-09-29T14:34:39]   --------------------------------------------------------------------------
+[2026-09-29T14:34:39]      1                       0.5      14.13472514173469379               0.0
+[2026-09-29T14:34:39]      2                       0.5     21.022039638771554993               0.0
+[2026-09-29T14:34:39]      3                       0.5     25.010857580145688763               0.0
+[2026-09-29T14:34:39]      4                       0.5      30.42487612585951321               0.0
+[2026-09-29T14:34:39]      5                       0.5     32.935061587739189691               0.0
+[2026-09-29T14:34:39]      6                       0.5     37.586178158825671257               0.0
+[2026-09-29T14:34:39]      7                       0.5     40.918719012147495187               0.0
+[2026-09-29T14:34:39]      8                       0.5     43.327073280914999519               0.0
+[2026-09-29T14:34:39]      9                       0.5     48.005150881167159728               0.0
+[2026-09-29T14:34:39]     10                       0.5     49.773832477672302182               0.0
+[2026-09-29T14:34:39]     11                       0.5     52.970321477714460644               0.0
+[2026-09-29T14:34:39]     12                       0.5     56.446247697063394804               0.0
+[2026-09-29T14:34:39]     13                       0.5      59.34704400260235308               0.0
+[2026-09-29T14:34:39]     14                       0.5     60.831778524609809844               0.0
+[2026-09-29T14:34:39]     15                       0.5     65.112544048081606661               0.0
+[2026-09-29T14:34:39]     16                       0.5     67.079810529494173714               0.0
+[2026-09-29T14:34:39]     17                       0.5     69.546401711173979253               0.0
+[2026-09-29T14:34:39]     18                       0.5     72.067157674481907583               0.0
+[2026-09-29T14:34:39]     19                       0.5     75.704690699083933168               0.0
+[2026-09-29T14:34:39]     20                       0.5     77.144840068874805373               0.0
+[2026-09-29T14:34:39]   --------------------------------------------------------------------------
+[2026-09-29T14:34:39]   worst deviation: 0.0  (zero #1)
+[2026-09-29T14:34:39]   tolerance at dps=25: 1.0e-20
+[2026-09-29T14:34:39]   NOTE: deviation is exactly 0 at this precision. The real parts
+[2026-09-29T14:34:39]         converged onto 0.5 to within working precision, so the
+[2026-09-29T14:34:39]         residual rounds to zero. Raise dps to expose it. Read
+[2026-09-29T14:34:39]         this as the limit of the arithmetic, not as extra
+[2026-09-29T14:34:39]         confirmation of the hypothesis.
+[2026-09-29T14:34:39]   
+[2026-09-29T14:34:39]   Scope: the first 20 non-trivial zeros only. Zeros beyond index
+[2026-09-29T14:34:39]   20 are unconstrained by this run. Finite verification, not a proof
+[2026-09-29T14:34:39]   of the Riemann Hypothesis.
+[2026-09-29T14:34:39] $ python tools/collatz_hunt.py
+[2026-09-29T14:34:39]   
+[2026-09-29T14:34:39]   ====================================================================
+[2026-09-29T14:34:39]   Collatz search over 1..100,000
+[2026-09-29T14:34:39]   ====================================================================
+[2026-09-29T14:34:39]   starts tested     : 100,000
+[2026-09-29T14:34:39]   all reached 1     : yes (within cap 10,000,000)
+[2026-09-29T14:34:39]   median trajectory : 99 steps
+[2026-09-29T14:34:39]   mean trajectory   : 107.5 steps
+[2026-09-29T14:34:39]   max trajectory    : 350 steps
+[2026-09-29T14:34:39]   max peak reached  : 1,570,824,736
+[2026-09-29T14:34:39]   starts exceeding peak 10^6: 7,903
+[2026-09-29T14:34:39]   
+[2026-09-29T14:34:39]   top 10 longest trajectories:
+[2026-09-29T14:34:39]          start     steps            peak
+[2026-09-29T14:34:39]         77,031       350      21,933,016
+[2026-09-29T14:34:39]         52,527       339     106,358,020
+[2026-09-29T14:34:39]         78,791       337     106,358,020
+[2026-09-29T14:34:39]         60,975       334     593,279,152
+[2026-09-29T14:34:39]         91,463       332     593,279,152
+[2026-09-29T14:34:39]         88,059       332       9,402,640
+[2026-09-29T14:34:39]         87,087       332       1,431,736
+[2026-09-29T14:34:39]         63,387       329      41,163,712
+[2026-09-29T14:34:39]         99,721       327     106,358,020
+[2026-09-29T14:34:39]         95,081       327      41,163,712
+[2026-09-29T14:34:39]   
+[2026-09-29T14:34:39]   cycle 1 -> 4 -> 2 -> 1 present: yes
+[2026-09-29T14:34:39]   
+[2026-09-29T14:34:39]   These tools search and verify. A clean run is evidence AGAINST a counterexample up to the bound searched -- it is never a proof of the conjecture itself.
+[2026-09-29T14:34:39] $ python tools/goldbach_twins.py 200000 --sample
+[2026-09-29T14:34:39]   
+[2026-09-29T14:34:39]   ====================================================================
+[2026-09-29T14:34:39]   Goldbach + twin-prime search up to 200,000
+[2026-09-29T14:34:39]   ====================================================================
+[2026-09-29T14:34:39]   
+[2026-09-29T14:34:39]   -- Goldbach (strong) --
+[2026-09-29T14:34:39]   even integers checked : 99,999  (4 .. 200,000)
+[2026-09-29T14:34:39]   counterexamples      : 0
+[2026-09-29T14:34:39]   min representations  : 1
+[2026-09-29T14:34:39]   max representations  : 3,931
+[2026-09-29T14:34:39]   cross-check          : fast count cross-checked against the naive reference for every even n <= 20,000
+[2026-09-29T14:34:39]   thinnest even numbers (fewest prime-pair reps):
+[2026-09-29T14:34:39]              4  1 rep(s)
+[2026-09-29T14:34:39]              6  1 rep(s)
+[2026-09-29T14:34:39]              8  1 rep(s)
+[2026-09-29T14:34:39]             12  1 rep(s)
+[2026-09-29T14:34:39]             10  2 rep(s)
+[2026-09-29T14:34:39]             14  2 rep(s)
+[2026-09-29T14:34:39]             16  2 rep(s)
+[2026-09-29T14:34:39]             18  2 rep(s)
+[2026-09-29T14:34:39]             20  2 rep(s)
+[2026-09-29T14:34:39]             28  2 rep(s)
+[2026-09-29T14:34:39]             32  2 rep(s)
+[2026-09-29T14:34:39]             38  2 rep(s)
+[2026-09-29T14:34:39]             68  2 rep(s)
+[2026-09-29T14:34:39]             22  3 rep(s)
+[2026-09-29T14:34:39]             24  3 rep(s)
+[2026-09-29T14:34:39]   
+[2026-09-29T14:34:39]   -- Twin primes --
+[2026-09-29T14:34:39]   pairs (p, p+2) up to 200,000 : 2,160
+[2026-09-29T14:34:39]   first five          : [3, 5, 11, 17, 29]
+[2026-09-29T14:34:39]   last five           : [199601, 199739, 199751, 199811, 199931]
+[2026-09-29T14:34:39]   largest pair in range: (199,931, 199,933)
+[2026-09-29T14:34:39]   
+[2026-09-29T14:34:39]   These tools search and verify. A clean run is evidence AGAINST a counterexample up to the bound searched -- it is never a proof of the conjecture itself.
+[2026-09-29T14:34:39]   Verified frontier for Goldbach is 4e18, far beyond any local search.
+[2026-09-29T14:34:39] $ python tools/pnp_probe.py
+[2026-09-29T14:34:39]   Single instance: n=40, m=170, density=4.25
+[2026-09-29T14:34:39]   
+[2026-09-29T14:34:39]     n= 40  m= 170  density=4.25  DPLL=  11.791ms  SAT
+[2026-09-29T14:34:39]          certificate check : 0.0872 ms  (       135x faster than search)
+[2026-09-29T14:34:39]   
+[2026-09-29T14:34:39]   Search cost grows exponentially; verification grows linearly.
+[2026-09-29T14:34:39]   That asymmetry is the P vs NP question, demonstrated on small
+[2026-09-29T14:34:39]   instances -- not resolved. See problems/millennium-prize/p-vs-np.md
+[2026-09-29T14:34:39] CHECK: status schema
+[2026-09-29T14:34:39] $ python tools/status_table.py
+[2026-09-29T14:34:39]   ProofZero -- 10 problems, 9 open, 1 solved
+[2026-09-29T14:34:39]   
+[2026-09-29T14:34:39]   PROBLEM                         STATUS  BOUND ACTUALLY CHECKED IN THIS REPO
+[2026-09-29T14:34:39]   --------------------------------------------------------------------------------------------------
+[2026-09-29T14:34:39]   Riemann Hypothesis              open    first 20 non-trivial zeros, located by two-variable Newton
+[2026-09-29T14:34:39]   P vs NP                         open    400 random 3-SAT instances, n in [4,14], seed 1234
+[2026-09-29T14:34:39]   Navier-Stokes Existence and Sm  open    no honest finite check exists
+[2026-09-29T14:34:39]   Yang-Mills Existence and Mass   open    no honest finite check exists
+[2026-09-29T14:34:39]   Birch and Swinnerton-Dyer Conj  open    no honest finite check exists
+[2026-09-29T14:34:39]   Hodge Conjecture                open    no honest finite check exists
+[2026-09-29T14:34:39]   Poincare Conjecture             solved  solved 2002-2003 (proof; not reproduced here)
+[2026-09-29T14:34:39]   Collatz Conjecture              open    200000 starting values, each trajectory searched with a pe
+[2026-09-29T14:34:39]   Goldbach Conjecture             open    every even n <= 20000, representation counts cross-checked
+[2026-09-29T14:34:39]   Twin Prime Conjecture           open    exact twin pair count through 200000
+[2026-09-29T14:34:39]   
+[2026-09-29T14:34:39]   Larger published bounds are CITED in each note, not reproduced here.
+[2026-09-29T14:34:39]   No tool, and none coming: birch-swinnerton-dyer, hodge-conjecture, navier-stokes, yang-mills-mass-gap, poincare (solved, needs no tool).
+[2026-09-29T14:34:39]   None of this resolves any open problem.
+[2026-09-29T14:34:39] CHECK: board honesty (anti-fabrication)
+[2026-09-29T14:34:39] $ node tools/check_greenboard.cjs
+[2026-09-29T14:34:39]   repo root: C:\Users\Thabang\proofzero
+[2026-09-29T14:34:39]   extracted script: 6024 chars
+[2026-09-29T14:34:39]   
+[2026-09-29T14:34:39]   STATS:
+[2026-09-29T14:34:39]     5 run here
+[2026-09-29T14:34:39]     4 cited, not reproduced
+[2026-09-29T14:34:39]     0 no finite check
+[2026-09-29T14:34:39]     1 solved
+[2026-09-29T14:34:39]     10 problems &middot; 4 with no local check
+[2026-09-29T14:34:39]   
+[2026-09-29T14:34:39]   CARDS RENDERED: 10
+[2026-09-29T14:34:39]   
+[2026-09-29T14:34:39]   problems=10 cards=10 noLocalCheck=4
+[2026-09-29T14:34:39]   
+[2026-09-29T14:34:39]   ALL RENDER CHECKS PASSED
+[2026-09-29T14:34:39] status snapshot: {"n": 10, "open": 9, "solved": 1, "with_tool": 5, "no_tool": 5, "ids": ["birch-swinnerton-dyer", "collatz", "goldbach", "hodge-conjecture", "navier-stokes", "p-vs-np", "poincare-conjecture", "riemann-hypothesis", "twin-prime", "yang-mills-mass-gap"]}
+[2026-09-29T14:34:39] no drift: status identical to previous run
+[2026-09-29T14:34:39] all checks passed
+[2026-09-29T14:34:39] ProofZero Auditor - run end

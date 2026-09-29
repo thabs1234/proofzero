@@ -21,6 +21,7 @@
 |---|---|
 | `problems/millennium-prize/` | All 7 Clay Millennium Prize Problems (6 open, 1 solved) |
 | `problems/classic-conjectures/` | Goldbach, Twin Prime, Collatz |
+| `problems/nothing.md` | The one entry with no problem in it. Not counted below. |
 | `problems/_template.md` | Template for adding new problems |
 | `notes/` | Personal research notes |
 | `tools/` | Scripts, helpers, utilities |
@@ -62,7 +63,8 @@ for each problem. Their outputs are consistent with the conjecture over
 the range they cover, and that is all they establish — a bounded search
 cannot settle a general statement. Nothing in this repository resolves
 any of the ten problems it describes, and no file here should be cited as
-if it did.
+if it did. The counts above are ten: `problems/nothing.md` is an eleventh
+entry in the folder and is not one of them.
 
 Citations are given to primary sources where the claim is attributed, and
 places where a result is conditional, partial, or frequently misreported
@@ -76,6 +78,11 @@ Copy `problems/_template.md` and fill in:
 - Progress timeline
 - Notes
 - References
+
+Every problem note opens with an exhibit card giving what is known, what a
+tool here checked at an exact bound, and what remains open. `nothing.md`
+has no such card, on purpose, and a new entry without a real bound to
+report should say so rather than invent one.
 
 ## License
 
